@@ -1,6 +1,6 @@
 Team 9:
 - Malik Almohsen (almohsem@oregonstate.edu)
-- add name
+- Allison Thompson (thompall@oregonstate.edu)
 - add name
 
 Project Description:
