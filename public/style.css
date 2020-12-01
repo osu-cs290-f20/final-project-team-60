@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+}
+
+nav {
+  background-color: black;
+}
+
+.navitem {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.navitem a{
+  color: white;
+}
+
+main {
+    display: flex;
+}
+
+.cards {
+  display: inline-block;
+  border: 1px solid grey;
+  margin: 10px;
+  padding: 5px;
+  width: 200px;
+  height: 200px;
+  background-color: #cae8d9;
+}
