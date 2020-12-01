@@ -1,4 +1,4 @@
-Team 9:
+Team 60:
 - Malik Almohsen (almohsem@oregonstate.edu)
 - Allison Thompson (thompall@oregonstate.edu)
 - Jack Schofield (schofija@oregonstate.edu)
