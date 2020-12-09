@@ -1,3 +1,6 @@
+// This file contains all the javascript for the geosearch (searchbar) and map (leaflet)
+
+
 var map = L.map('mapid', {
     // Set latitude and longitude of the map center (required)
     center: [30, -30],

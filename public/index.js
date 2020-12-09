@@ -1,3 +1,5 @@
+//This .js file contains javascript for various functions within /trip that are unrelated to the map (pretty much just a couple buttons for now)
+
 var x = document.getElementById("button-close");
 var cancel = document.getElementById("cancel-trip-button");
 
