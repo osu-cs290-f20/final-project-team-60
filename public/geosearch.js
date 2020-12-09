@@ -25,7 +25,7 @@ form.addEventListener('submit', async (event) => {
   const results = await provider.search({ query: input.value });
   console.log(results); // » [{}, {}, {}, ...]
 
-  map.setView([results[0].y, results[0].x], 8);
+  map.setView([results[0].y, results[0].x], 6);
 
   var resultDiv = document.getElementById("results");
 
