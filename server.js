@@ -17,7 +17,10 @@ app.get('/index.html', function(req, res, next) {
 });
 
 app.get('/trip.html', function(req, res, next) {
-  res.status(200).render('trip');
+  res.status(200).render('trip', {
+     sitetitle: "Benny's Tripz",
+     pagetitle: "Plan a Trip"
+   });
 });
 
 app.get('/gallery.html', function(req, res, next) {
