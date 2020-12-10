@@ -45,3 +45,45 @@ form.addEventListener('submit', async (event) => {
   document.getElementById("button-close").style.display = "inline";
 
 });
+
+//Cancel/X button for planning a trip.
+var x = document.getElementById("button-close");
+var cancel = document.getElementById("cancel-trip-button");
+
+function removeLocation() {
+
+var location = document.getElementById("results");
+location.innerHTML = "";
+
+x.style.display = "none"
+document.getElementById("trip-plan-forum").style.display = "none"
+}
+
+x.addEventListener("click", removeLocation);
+cancel.addEventListener("click", removeLocation);
+
+function insertNewPost(location, startDate, endDate, time, notes) {
+
+//Insert handlebars script here:)
+
+var context = {
+
+location: location,
+startDate: startDate,
+endDate: endDate,
+time: time,
+notes: notes
+
+};
+
+var postCardHTML = Handlebars.templates.tripEntery(context);
+
+var postContainer = document.getElementById('mytrips');
+
+postContainer.insertAdjacentHTML("beforeend", postCardHTML);
+
+return postCardHTML;
+
+}
+
+document.getElementById("add-trip-button").addEventListener("click", insertNewPost);
