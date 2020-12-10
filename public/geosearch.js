@@ -62,17 +62,22 @@ document.getElementById("trip-plan-forum").style.display = "none"
 x.addEventListener("click", removeLocation);
 cancel.addEventListener("click", removeLocation);
 
-function insertNewPost(location, startDate, endDate, time, notes) {
+function insertNewPost() {
 
-//Insert handlebars script here:)
+  var date1 = new Date(document.getElementById("trip-start-date").value);
+  var date2 = new Date(document.getElementById("trip-end-date").value);
+
+  var diffTime = date2 - date1;
+  console.log("Difftime", diffTime);
+  var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
 var context = {
 
-location: location,
-startDate: startDate,
-endDate: endDate,
-time: time,
-notes: notes
+location: document.getElementById("results").textContent,
+startDate: document.getElementById("trip-start-date").value,
+endDate: document.getElementById("trip-start-date").value,
+time: diffDays,
+notes: 6
 
 };
 
