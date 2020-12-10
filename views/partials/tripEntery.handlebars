@@ -1,4 +1,4 @@
-<div class="trip-post-container">
+<!-- <div class="trip-post-container">
   <div class="trip-post-content-container">
     <div class="trip-title-container">
       <h2 class="trip-post-tite">Trip to {{location}}</h2
@@ -17,6 +17,21 @@
     </div>
     <div class="notes-container">
       <p class="notes">{{notes}}</p>
+    </div>
+  </div>
+</div> -->
+
+<div class="trip" data-title={{tripTitle}}>
+  <div class="trip-contents">
+    <div class="trip-image-container">
+      <img src={{tripPostImage}}>
+    </div>
+    <div class="trip-info-container">
+      <button type="button" id="0" class="trip-title">{{tripTitle}}</button>
+      <div class="trip-date">{{tripStartDate}} - {{tripEndDate}}</div>
+      <div class="trip-location">{{location}}</div>
+      <!-- Whats this for? -->
+      <p>This is a place</p>
     </div>
   </div>
 </div>
