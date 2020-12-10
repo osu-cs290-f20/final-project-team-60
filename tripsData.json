@@ -1,10 +1,10 @@
 [
   {
-    "trip-post-image": "https://cdn.pixabay.com/photo/2016/12/12/22/31/japan-1902834_1280.jpg"
-    "trip-title": "Japan 2018",
-    "trip-start-date": "10/3/2018",
-    "trip-end-date": "10/6/2018",
-    "trip-country": "Japan",
+    "tripPostImage": "https://cdn.pixabay.com/photo/2016/12/12/22/31/japan-1902834_1280.jpg",
+    "tripTitle": "Japan 2018",
+    "tripStartDate": "October 3, 2018",
+    "tripEndDate": "October 6, 2018",
+    "location": "Japan",
     "destinations": [
       [
         "Tokyo Skytree"
@@ -31,11 +31,11 @@
     ]
   },
   {
-    "trip-post-image": "https://cdn.pixabay.com/photo/2018/04/25/09/26/eiffel-tower-3349075_1280.jpg"
-    "trip-title": "Paris 2021",
-    "trip-start-date": "5/11/2021",
-    "trip-end-date": "5/13/2021",
-    "trip-country": "France",
+    "tripPostImage": "https://cdn.pixabay.com/photo/2018/04/25/09/26/eiffel-tower-3349075_1280.jpg",
+    "tripTitle": "Paris 2021",
+    "tripStartDate": "May 11, 2021",
+    "tripEndDate": "May 13, 2021",
+    "location": "France",
     "destinations": [
       [
         "Eiffel Tower",
@@ -50,6 +50,26 @@
       "https://cdn.pixabay.com/photo/2015/07/13/14/40/paris-843229_1280.jpg",
       "https://cdn.pixabay.com/photo/2013/04/09/08/08/building-102110_1280.jpg",
       "https://cdn.pixabay.com/photo/2017/07/15/13/45/french-restaurant-2506490_1280.jpg"
+    ]
+  },
+  {
+    "tripPostImage": "https://cdn.pixabay.com/photo/2015/07/29/22/56/india-866692_1280.jpg",
+    "tripTitle": "India 2021",
+    "tripStartDate": "June 12, 2021",
+    "tripEndDate": "June 15, 2021",
+    "location": "India",
+    "destinations": [
+      [
+        "Taj Mahal"
+      ],
+      [
+        "Red Fort"
+      ]
+    ],
+    "images": [
+      "https://cdn.pixabay.com/photo/2020/06/14/15/55/landscape-5298395_1280.jpg",
+      "https://cdn.pixabay.com/photo/2013/08/05/06/21/sunset-169925_1280.jpg",
+      "https://cdn.pixabay.com/photo/2014/04/05/11/27/buffet-315691_1280.jpg"
     ]
   }
 ]
