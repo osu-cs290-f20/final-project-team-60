@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
+    <script src="index.js" charset="utf-8" defer></script>
   </head>
   <body>
     <header>
-      <h1 class="site-title">Benny's Tripz</h1>
+      <h1 class="site-title">Group Project</h1>
     </header>
 
     <nav class="navbar">
@@ -32,7 +33,7 @@
         <div class="filter-input-container">
           <label for="filter-date" class="filter-input-label">Start Date</label>
           <div class="filter-input-element">
-            <select id="filter-month" class="filter-input" name="filter-date">
+            <select id="filter-start-month" class="filter-input">
               <option selected value="">Any</option>
               <option>January</option>
               <option>Febuary</option>
@@ -50,18 +51,18 @@
 
             /
 
-            <input type="text" name="filter-day" id="filter-day" class="filter-input">
+            <input type="text" id="filter-start-day" class="filter-input">
 
             /
 
-            <input type="text" name="filter-year" id="filter-year" class="filter-input">
+            <input type="text" id="filter-start-year" class="filter-input">
           </div>
         </div>
 
         <div class="filter-input-container">
           <label for="filter-date" class="filter-input-label">End Date</label>
           <div class="filter-input-element">
-            <select id="filter-month" class="filter-input" name="filter-date">
+            <select id="filter-end-month" class="filter-input">
               <option selected value="">Any</option>
               <option>January</option>
               <option>Febuary</option>
@@ -79,11 +80,11 @@
 
             /
 
-            <input type="text" name="filter-day" id="filter-day" class="filter-input">
+            <input type="text" id="filter-end-day" class="filter-input">
 
             /
 
-            <input type="text" name="filter-year" id="filter-year" class="filter-input">
+            <input type="text" id="filter-end-year" class="filter-input">
           </div>
         </div>
 
@@ -114,17 +115,44 @@
       </aside>
 
       <section id="trips">
-        <div class="trip" data-title="">
+        <div class="trip" data-title="Somewhere">
           <div class="trip-contents">
             <div class="trip-image-container">
-              <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg" alt="Super nice laptop">
+              <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg">
             </div>
             <div class="trip-info-container">
-              <a href="#" class="trip-title">Somewhere</a>
-              <div></div>
-              <span class="trip-start-date">September 19, 2020</span> <span> - </span> <span class="trip-end-date">October 1, 2020</span>
-              <div></div>
-              <span class="trip-city">Portland,</span> <span class="trip-state/province">Oregon</span> <span class="trip-country">USA</span>
+              <button type="button" id="0" class="trip-title">Somewhere</button>
+              <div class="trip-date">September 19, 2020 - October 1, 2020</div> 
+              <div class="trip-location">Portland, Oregon USA</div>
+              <p>This is a place</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="trip" data-title="Someplace">
+          <div class="trip-contents">
+            <div class="trip-image-container">
+              <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg">
+            </div>
+            <div class="trip-info-container">
+              <button type="button" id="1" class="trip-title">Someplace</button>
+              <div class="trip-date">June 2, 2020 - July 1, 2020</div> 
+              <div class="trip-location">Corvallis, Oregon USA</div>
+              <p>kk</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="trip" data-title="other">
+          <div class="trip-contents">
+            <div class="trip-image-container">
+              <img src="">
+            </div>
+            <div class="trip-info-container">
+              <button type="button" id="2" class="trip-title">other</button>
+              <div class="trip-date">July 23, 2020 - September 3, 2020</div> 
+              <div class="trip-location">Salem, Oregon USA</div>
+              <p>no</p>
             </div>
           </div>
         </div>
@@ -133,14 +161,10 @@
 
     <div id="modal-backdrop" class="hidden"></div>
 
-    <div id="modal" class="hidden">
+    <section id="modal" class="hidden">
       <div class="modal-header">
         <button type="button" id="modal-close" class="modal-hide-button">X</button>
       </div>
-
-      <div class="trip-description">
-        hello
-      </div>
-    </div>
+    </section>
   </body>
 </html>
