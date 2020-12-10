@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 nav {
@@ -39,9 +40,10 @@ margin-right: 0px;
 
 .site-title {
   margin: 20px;
-  font-family:  "Courier New", "Lucida Console", monospace;
-    font-weight: lighter;
-    font-size: 32px;
+  /* font-family:  "Courier New", "Lucida Console", monospace; */
+  font-family: 'Open Sans Condensed', sans-serif;
+    /* font-weight: lighter;
+    font-size: 32px; */
 }
 
 .page-title {
