@@ -13,18 +13,22 @@ app.get('/', function(req, res, next) {
 });
 
 app.get('/index.html', function(req, res, next) {
-  res.status(200).render('homePage');
+  res.status(200).render('homePage', {
+    pagetitle: "Home"
+  });
 });
 
 app.get('/trip.html', function(req, res, next) {
   res.status(200).render('trip', {
-     sitetitle: "Benny's Tripz",
+     // sitetitle: "Benny's Tripz",
      pagetitle: "Plan a Trip"
    });
 });
 
 app.get('/gallery.html', function(req, res, next) {
-  res.status(200).render('gallery');
+  res.status(200).render('gallery', {
+    pagetitle: "Gallery"
+  });
 });
 
 app.use(express.static('public'));
