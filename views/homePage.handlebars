@@ -1,22 +1,128 @@
+<div id="page-header">
+    <h2 class="page-title">{{pagetitle}}</h2>
+  </div>
+
 <main>
-  <section>
-    <div class="cards">
-      <img src="#" alt="">
-      <p>Description</p>
-    </div>
-  </section>
+  <aside class="filter-container">
+    <h2>Filter</h2>
 
-  <section>
-    <div class="cards">
-      <img src="#" alt="">
-      <p>Description</p>
+    <div class="filter-input-container">
+      <label for="filter-trip-name" class="filter-input-label">Trip Title</label>
+      <div class="filter-input-element">
+        <input type="text" name="filter-trip-name" id="filter-trip-name" class="filter-input">
+      </div>
     </div>
-  </section>
 
-  <section>
-    <div class="cards">
-      <img src="#" alt="">
-      <p>Description</p>
+    <div class="filter-input-container">
+      <label for="filter-date" class="filter-input-label">Start Date</label>
+      <div class="filter-input-element">
+        <select id="filter-month" class="filter-input" name="filter-date">
+          <option selected value="">Any</option>
+          <option>January</option>
+          <option>Febuary</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+          <option>August</option>
+          <option>September</option>
+          <option>October</option>
+          <option>November</option>
+          <option>December</option>
+        </select>
+
+        /
+
+        <input type="text" name="filter-day" id="filter-day" class="filter-input">
+
+        /
+
+        <input type="text" name="filter-year" id="filter-year" class="filter-input">
+      </div>
+    </div>
+
+    <div class="filter-input-container">
+      <label for="filter-date" class="filter-input-label">End Date</label>
+      <div class="filter-input-element">
+        <select id="filter-month" class="filter-input" name="filter-date">
+          <option selected value="">Any</option>
+          <option>January</option>
+          <option>Febuary</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+          <option>August</option>
+          <option>September</option>
+          <option>October</option>
+          <option>November</option>
+          <option>December</option>
+        </select>
+
+        /
+
+        <input type="text" name="filter-day" id="filter-day" class="filter-input">
+
+        /
+
+        <input type="text" name="filter-year" id="filter-year" class="filter-input">
+      </div>
+    </div>
+
+    <div class="filter-input-container">
+      <label for="filter-city" class="filter-input-label">City</label>
+      <div class="filter-input-element">
+        <input type="text" name="filter-city" id="filter-city" class="filter-input">
+      </div>
+    </div>
+
+    <div class="filter-input-container">
+      <label for="filter-state-province" class="filter-input-label">State/Province</label>
+      <div class="filter-input-element">
+        <input type="text" name="filter-state-province" id="filter-state-province" class="filter-input">
+      </div>
+    </div>
+
+    <div class="filter-input-container">
+      <label for="filter-country" class="filter-input-label">Country</label>
+      <div class="filter-input-element">
+        <input type="text" name="filter-country" id="filter-country" class="filter-input">
+      </div>
+    </div>
+
+    <div>
+      <button id="filter-update-button" class="action-button">Update</button>
+    </div>
+  </aside>
+
+  <section id="trips">
+    <div class="trip" data-title="">
+      <div class="trip-contents">
+        <div class="trip-image-container">
+          <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg" alt="Super nice laptop">
+        </div>
+        <div class="trip-info-container">
+          <a href="#" class="trip-title">Somewhere</a>
+          <div></div>
+          <span class="trip-start-date">September 19, 2020</span> <span> - </span> <span class="trip-end-date">October 1, 2020</span>
+          <div></div>
+          <span class="trip-city">Portland,</span> <span class="trip-state/province">Oregon</span> <span class="trip-country">USA</span>
+        </div>
+      </div>
     </div>
   </section>
 </main>
+
+<div id="modal-backdrop" class="hidden"></div>
+
+<div id="modal" class="hidden">
+  <div class="modal-header">
+    <button type="button" id="modal-close" class="modal-hide-button">X</button>
+  </div>
+
+  <div class="trip-description">
+    hello
+  </div>
+</div>
