@@ -15,10 +15,6 @@ nav {
   color: white;
 }
 
-main {
-    display: flex;
-}
-
 .cards {
   display: inline-block;
   border: 1px solid grey;
@@ -27,4 +23,135 @@ main {
   width: 200px;
   height: 200px;
   background-color: #cae8d9;
+}
+
+p {
+  display: none;
+  padding-left: 20px;
+  font-size: 25px;
+  float: left;
+  max-width: 580px;
+}
+
+h1 {
+  margin-left: 25px;
+}
+
+.filter-container {
+  display: inline-block;
+  min-width: 0%;
+  max-width: 200%;
+  margin-left: 25px;
+  padding: 20px;
+  border-radius: 3px;
+  background-color: #efefef;
+}
+
+.filter-input-container {
+  float: left;
+}
+
+.filter-container h2 {
+  margin: 0;
+}
+
+.filter-input-container {
+  margin: 10px 30px 0px 0px;
+}
+
+#filter-start-day  {
+  min-width: 10px;
+  max-width: 20px;
+}
+
+#filter-start-year  {
+  min-width: 10px;
+  max-width: 30px;
+}
+
+#filter-end-day  {
+  min-width: 10px;
+  max-width: 20px;
+}
+
+#filter-end-year  {
+  min-width: 10px;
+  max-width: 30px;
+}
+
+.action-button {
+  margin-top: 10px;
+}
+
+.trip .trip-contents {
+  width: 300px;
+  height: 325px;
+  border: 1.5px solid #dddddd;
+  border-radius: 5px;
+  margin-top: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  float: left;
+}
+
+.trip .trip-contents .trip-image-container img {
+  width: 280px;
+  height: auto;
+  max-height: 250px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.trip .trip-contents .trip-info-container {
+  margin-left: 10px;
+  font-family: Roboto;
+}
+
+.hidden {
+  display: none;
+}
+
+#modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+#modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
+  width: auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 300px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.modal-header {
+  position: relative;
+  padding: 10px 20px;
+  margin-bottom: 25px;
+}
+
+#modal-close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 30px;
+  border: none;
+  background: none;
+  padding: 0px;
+  cursor: pointer;
 }

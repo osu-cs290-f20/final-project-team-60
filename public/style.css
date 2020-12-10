@@ -28,3 +28,177 @@ main {
   height: 200px;
   background-color: #cae8d9;
 }
+
+/* Basic styling for trip.html */
+
+* {
+margin-top: 0px;
+margin-left: 0px;
+margin-right: 0px;
+}
+
+.site-title {
+  margin: 20px;
+  font-family:  "Courier New", "Lucida Console", monospace;
+    font-weight: lighter;
+    font-size: 32px;
+}
+
+.page-title {
+
+  color: white;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-family:  "Courier New", "Lucida Console", monospace;
+  font-weight: lighter;
+}
+
+#page-header {
+  display: flex;
+  background-color: black;
+  border-color: white;
+  border-top-style: solid;
+}
+
+header {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#mapid {
+  margin: 10px;
+  margin-right: 2%;
+  border-style: solid;
+  border-radius: 3px;
+  border-color: navy;
+  /* 350px originally */
+   height: 200px;
+   /* width: 425px; */
+   width: 30%;
+   float: right;
+   display: inline;
+ }
+
+aside {
+  /* margin-top: 5px;
+  display: flex;
+  position: relative;
+  background-color: lightgrey; */
+  height: 275px;
+  width: 100%;
+}
+
+ #add-trip-container {
+
+   background-color: white;
+   border-radius: 5px;
+   /* margin-right: 40px; */
+   /* width: 200px; */
+
+   border-bottom-color: black;
+   border-bottom-style: solid;
+ }
+
+form {
+  text-align: center;
+  width: 70%;
+  display: inline-block;
+}
+
+label {
+  font-family:   "Lucida Console","Courier New", monospace;
+  font-weight: lighter;
+}
+
+input {
+   margin-left: 0px;
+   margin-right: 0px;
+   width: 50%;
+   height: 18px;
+
+   background-color: white;
+   border-radius: 2px;
+   border-color: black;
+   border-style: solid;
+
+ }
+
+ #trip-plan-forum {
+   margin: 10px;
+   width: 50%;
+   height: 175px;
+   border-style: solid;
+   border-width: 2px;
+   padding: 6px;
+   border-color: lightgrey;
+   border-radius: 4px;
+   /* height: 50%; */
+   margin-left: 9%;
+   margin-right: 9%;
+ }
+
+ #results {
+   display: inline;
+ }
+
+.close {
+
+float: right;
+width: 32px;
+height: 32px;
+opacity: 1;
+color: navy;
+
+margin-right: 8px;
+padding: 0;
+border: none;
+background: none;
+
+font-size: 24px;
+}
+
+.close:hover {
+  opacity: 1;
+  /* font-size: 40px; */
+  color:crimson;
+}
+
+.trip-button {
+  float: right;
+  display: inline;
+  margin: 10px;
+
+  font-weight: 100;
+margin: 10px;
+width: 180px;
+height: 30px;
+background-color: lightblue;
+color: black;
+font-size: 14px;
+
+border-color: black;
+border-radius: 8px;
+border-width: 2px;
+
+position: relative;
+bottom: 0;
+right:0;
+}
+
+#cancel-trip-button {
+  background-color: black;
+  color: white;
+}
+
+#cancel-trip-button:hover{
+  color: snow;
+  background-color: crimson;
+}
