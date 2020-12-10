@@ -1,5 +1,10 @@
 body {
   margin: 0;
+  /* font-family: 'Open Sans Condensed', sans-serif; */
+  font-family:sans-serif;
+}
+
+header {
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
@@ -10,14 +15,11 @@ nav {
 .navitem {
   display: inline-block;
   padding: 0 10px;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .navitem a{
   color: white;
-}
-
-main {
-    display: flex;
 }
 
 .cards {
@@ -30,177 +32,133 @@ main {
   background-color: #cae8d9;
 }
 
-/* Basic styling for trip.html */
-
-* {
-margin-top: 0px;
-margin-left: 0px;
-margin-right: 0px;
+p {
+  display: none;
+  padding-left: 20px;
+  font-size: 25px;
+  float: left;
+  max-width: 580px;
 }
 
-.site-title {
-  margin: 20px;
-  /* font-family:  "Courier New", "Lucida Console", monospace; */
-  font-family: 'Open Sans Condensed', sans-serif;
-    /* font-weight: lighter;
-    font-size: 32px; */
+h1 {
+  margin-left: 25px;
 }
 
-.page-title {
-
-  color: white;
-  margin-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 4px;
-  font-family:  "Courier New", "Lucida Console", monospace;
-  font-weight: lighter;
-}
-
-#page-header {
-  display: flex;
-  background-color: black;
-  border-color: white;
-  border-top-style: solid;
-}
-
-header {
-  background-color: black;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-header a {
-  color: #fff;
-  text-decoration: none;
-}
-
-#mapid {
-  margin: 10px;
-  margin-right: 2%;
-  border-style: solid;
-  border-radius: 3px;
-  border-color: navy;
-  /* 350px originally */
-   height: 200px;
-   /* width: 425px; */
-   width: 30%;
-   float: right;
-   display: inline;
- }
-
-aside {
-  /* margin-top: 5px;
-  display: flex;
-  position: relative;
-  background-color: lightgrey; */
-  height: 275px;
-  width: 100%;
-}
-
- #add-trip-container {
-
-   background-color: white;
-   border-radius: 5px;
-   /* margin-right: 40px; */
-   /* width: 200px; */
-
-   border-bottom-color: black;
-   border-bottom-style: solid;
- }
-
-form {
-  text-align: center;
-  width: 70%;
+.filter-container {
   display: inline-block;
+  min-width: 0%;
+  max-width: 200%;
+  margin-left: 25px;
+  padding: 20px;
+  border-radius: 3px;
+  background-color: #efefef;
 }
 
-label {
-  font-family:   "Lucida Console","Courier New", monospace;
-  font-weight: lighter;
+.filter-input-container {
+  float: left;
 }
 
-input {
-   margin-left: 0px;
-   margin-right: 0px;
-   width: 50%;
-   height: 18px;
-
-   background-color: white;
-   border-radius: 2px;
-   border-color: black;
-   border-style: solid;
-
- }
-
- #trip-plan-forum {
-   margin: 10px;
-   width: 50%;
-   height: 175px;
-   border-style: solid;
-   border-width: 2px;
-   padding: 6px;
-   border-color: lightgrey;
-   border-radius: 4px;
-   /* height: 50%; */
-   margin-left: 9%;
-   margin-right: 9%;
- }
-
- #results {
-   display: inline;
- }
-
-.close {
-
-float: right;
-width: 32px;
-height: 32px;
-opacity: 1;
-color: navy;
-
-margin-right: 8px;
-padding: 0;
-border: none;
-background: none;
-
-font-size: 24px;
+.filter-container h2 {
+  margin: 0;
 }
 
-.close:hover {
-  opacity: 1;
-  /* font-size: 40px; */
-  color:crimson;
+.filter-input-container {
+  margin: 10px 30px 0px 0px;
 }
 
-.trip-button {
-  float: right;
-  display: inline;
-  margin: 10px;
-
-  font-weight: 100;
-margin: 10px;
-width: 180px;
-height: 30px;
-background-color: lightblue;
-color: black;
-font-size: 14px;
-
-border-color: black;
-border-radius: 8px;
-border-width: 2px;
-
-position: relative;
-bottom: 0;
-right:0;
+#filter-start-day  {
+  min-width: 10px;
+  max-width: 20px;
 }
 
-#cancel-trip-button {
-  background-color: black;
-  color: white;
+#filter-start-year  {
+  min-width: 10px;
+  max-width: 30px;
 }
 
-#cancel-trip-button:hover{
-  color: snow;
-  background-color: crimson;
+#filter-end-day  {
+  min-width: 10px;
+  max-width: 20px;
+}
+
+#filter-end-year  {
+  min-width: 10px;
+  max-width: 30px;
+}
+
+.action-button {
+  margin-top: 10px;
+}
+
+.trip .trip-contents {
+  width: 300px;
+  height: 325px;
+  border: 1.5px solid #dddddd;
+  border-radius: 5px;
+  margin-top: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  float: left;
+}
+
+.trip .trip-contents .trip-image-container img {
+  width: 280px;
+  height: auto;
+  max-height: 250px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.trip .trip-contents .trip-info-container {
+  margin-left: 10px;
+  font-family: Roboto;
+}
+
+.hidden {
+  display: none;
+}
+
+#modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+#modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
+  width: auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 300px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.modal-header {
+  position: relative;
+  padding: 10px 20px;
+  margin-bottom: 25px;
+}
+
+#modal-close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 30px;
+  border: none;
+  background: none;
+  padding: 0px;
+  cursor: pointer;
 }
