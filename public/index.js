@@ -4,14 +4,15 @@ var trips = document.getElementsByClassName('trip');
 createTripsList();
 
 function createTripsList() {
-    for (var x = 0; x < trips.length; x++) {
+    for (var x = 0; x < trips.length; x++) { 
         tripsList.push([]);
         tripsList[x].push(trips[x].getAttribute('data-title'));
         tripsList[x].push(trips[x].children[0].children[1].children[0].src);
-        tripsList[x].push(trips[x].children[0].children[0].children[0].getAttribute('id'));
-        tripsList[x].push(trips[x].children[0].children[2].children[1].children[1].textContent);
-        tripsList[x].push(trips[x].children[0].children[2].children[2].children[1].textContent);
-        tripsList[x].push(trips[x].children[0].children[2].children[3].textContent);  
+        tripsList[x].push(trips[x].children[0].children[3].children[1].children[1].textContent);
+        tripsList[x].push(trips[x].children[0].children[3].children[2].children[1].textContent);
+        tripsList[x].push(trips[x].children[0].children[2].children[0].src);
+        tripsList[x].push(trips[x].getAttribute('data-lat'));
+        tripsList[x].push(trips[x].getAttribute('data-long'));
     }
 
     while (trips.length > 0) {
@@ -34,12 +35,7 @@ function removeTrip(tripsLength, x) {
         tripReq.open('DELETE', reqURL);
 
         var tripBody = JSON.stringify({
-            index: tripsLength,
-            tripPostImage: tripsList[tripsLength][1],
-            tripTitle: tripsList[tripsLength][0],
-            tripStartDate: tripsList[tripsLength][3],
-            tripEndDate: tripsList[tripsLength][4],
-            location: tripsList[tripsLength][5]
+            index: x
         });
 
         tripReq.setRequestHeader('Content-Type', 'application/json');
@@ -56,8 +52,6 @@ function removeTrip(tripsLength, x) {
         if (trips.length == tripsList.length) {
             tripsList.length = 0;
             createTripsList();
-        } else {
-            filterTrips();
         }
     }, false);    
 }
@@ -67,13 +61,12 @@ function getDescription(tripsLength, x) {
         document.getElementById('modal-backdrop').style.display = 'inline';
         document.getElementById('modal').style.display = 'inline';
         
-        var description = document.createElement('div');
-        var para = document.createElement('p');
-        var p = document.createTextNode(tripsList[x][8]);
-        para.appendChild(p);
-        para.style.display = 'inline';
-        description.appendChild(para);
-        document.getElementById('modal').appendChild(description); 
+        var map = document.createElement('div');
+        var mapURL = document.createElement('img');
+        mapURL.src = tripsList[x][4];
+        map.appendChild(mapURL);
+        document.getElementById('modal').appendChild(map); 
+
     }, false);
 }
 
@@ -87,7 +80,9 @@ document.getElementById('modal-close').addEventListener('click', function() {
 function insertTrip(x) {
     var newTrip = document.createElement('div');
     newTrip.className = 'trip';
-    newTrip.setAttribute("data-title", tripsList[x][0]);
+    newTrip.setAttribute('data-title', tripsList[x][0]);
+    newTrip.setAttribute('data-lat', tripsList[x][5]);
+    newTrip.setAttribute('data-long', tripsList[x][6]);
 
     var newTripContent = document.createElement('div');
     newTripContent.className = 'trip-contents';
@@ -100,7 +95,6 @@ function insertTrip(x) {
     var newRemove = document.createElement('button');
     var removeName = document.createTextNode('X');
     newRemove.className = "trip-remove";
-    newRemove.setAttribute("id", x); 
     newRemove.appendChild(removeName);
     newTripRem.appendChild(newRemove);
 
@@ -112,6 +106,15 @@ function insertTrip(x) {
     newImg.src = tripsList[x][1];
     newTripImg.appendChild(newImg);
 
+    var newTripMap = document.createElement('div');
+    newTripMap.className = "trip-map-container";
+    newTripMap.setAttribute('id', 'hidden');
+    newTripContent.appendChild(newTripMap);
+
+    var newMap = document.createElement('img');
+    newMap.src = tripsList[x][4];
+    newTripMap.appendChild(newMap);    
+
     var newTripInfo = document.createElement('div');
     newTripInfo.className = "trip-info-container";
     newTripContent.appendChild(newTripInfo);
@@ -119,7 +122,6 @@ function insertTrip(x) {
     var newButton = document.createElement('button');
     var buttonName = document.createTextNode(tripsList[x][0]);
     newButton.className = "trip-title";
-    newButton.setAttribute("id", x); 
     newButton.appendChild(buttonName);
     newTripInfo.appendChild(newButton);
 
@@ -127,7 +129,7 @@ function insertTrip(x) {
     var startTitle = document.createElement('span');
     var startTNode = document.createTextNode('Start Date: ');
     var startdate = document.createElement('span');
-    var startDNode = document.createTextNode(tripsList[x][3]);
+    var startDNode = document.createTextNode(tripsList[x][2]);
     startdate.className = "trip-start-date";
     startTitle.appendChild(startTNode);
     startdate.appendChild(startDNode);
@@ -139,7 +141,7 @@ function insertTrip(x) {
     var endTitle = document.createElement('span');
     var endTNode = document.createTextNode('End Date: ');
     var enddate = document.createElement('span');
-    var endDNode = document.createTextNode(tripsList[x][4]);
+    var endDNode = document.createTextNode(tripsList[x][3]);
     enddate.className = "trip-end-date";
     endTitle.appendChild(endTNode);
     enddate.appendChild(endDNode);
@@ -148,15 +150,10 @@ function insertTrip(x) {
     newTripInfo.appendChild(newEndDate);
 
     var newLocation = document.createElement('div');
-    var l = document.createTextNode(tripsList[x][5]);
+    var l = document.createTextNode(tripsList[x][0]);
     newLocation.className = "trip-location";
     newLocation.appendChild(l);
     newTripInfo.appendChild(newLocation);
-
-    var newDescription = document.createElement('p');
-    d = document.createTextNode(tripsList[x][8]);
-    newDescription.appendChild(d);
-    newTripInfo.appendChild(newDescription);
     
     document.getElementById('trips').appendChild(newTrip);
 }
@@ -176,9 +173,9 @@ function filterTrips() {
 
     for (var x = 0; x < tripsList.length; x++) {
         if (tripsList[x][0].toLowerCase().includes(title) &&
-            tripsList[x][3].includes(startDate) &&
-            tripsList[x][4].includes(endDate) &&
-            tripsList[x][5].includes(country)) {
+            tripsList[x][2].includes(startDate) &&
+            tripsList[x][3].includes(endDate) &&
+            tripsList[x][0].includes(country)) {
 
             insertTrip(x);
             removeTrip(tripsLength, x);
