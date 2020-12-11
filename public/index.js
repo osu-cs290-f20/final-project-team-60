@@ -35,7 +35,12 @@ function removeTrip(tripsLength, x) {
         tripReq.open('DELETE', reqURL);
 
         var tripBody = JSON.stringify({
-            index: x
+            tripPostImage: tripsList[x][1],
+            tripStartDate: tripsList[x][2],
+            tripEndDate: tripsList[x][3],
+            location: tripsList[x][0],
+            latitude: tripsList[x][5],
+            longitude: tripsList[x][6]
         });
 
         tripReq.setRequestHeader('Content-Type', 'application/json');
@@ -60,6 +65,10 @@ function getDescription(tripsLength, x) {
     document.getElementsByClassName('trip-title')[tripsLength].addEventListener('click', function() { 
         document.getElementById('modal-backdrop').style.display = 'inline';
         document.getElementById('modal').style.display = 'inline';
+
+        if (document.getElementById('modal').children.length == 2) {
+            document.getElementById('modal').children[1].remove();
+        }
         
         var map = document.createElement('div');
         var mapURL = document.createElement('img');
