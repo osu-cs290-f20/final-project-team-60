@@ -109,7 +109,7 @@ var images = [document.getElementById("trip-image-url-input").value];
 var context = JSON.stringify({
 location: document.getElementById("results").textContent,
 tripStartDate: document.getElementById("trip-start-date").value,
-tripEndDate: document.getElementById("trip-end-date").value,
+tripEndDate: document.getElementById("trip-start-date").value,
 longitude: long,
 latitude: lat,
 images: images,
@@ -132,16 +132,6 @@ postRequest.send(context);
 //
 //
 // return postCardHTML;
-
-if(!document.getElementById("trip-start-date").value || !document.getElementById("trip-end-date").value ||  !document.getElementById("trip-image-url-input").value)
-{
-  alert("You have not filled in all of the fields properly!");
-}
-
-else {
-  document.getElementById("trip-plan-forum").style.display = "none";
-  document.getElementById("button-close").style.display = "none";
-}
 
 }
 
