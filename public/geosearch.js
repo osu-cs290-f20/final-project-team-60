@@ -78,7 +78,11 @@ function insertNewPost() {
   console.log("Difftime", diffTime);
   var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-var context = {
+  var postRequest = new XMLHttpRequest();
+  var reqURL = "/trip.html/addTrip";
+  postRequest.open("POST", reqURL);
+
+var context = JSON.stringify({
 
 location: document.getElementById("results").textContent,
 tripStartDate: document.getElementById("trip-start-date").value,
@@ -87,15 +91,18 @@ time: diffDays,
 long: long,
 lat: lat
 
-};
+});
 
-var postCardHTML = Handlebars.templates.tripEntery(context);
+postRequest.setRequestHeader('Content-Type', 'application/json' );
+postRequest.send(context);
 
-var postContainer = document.getElementById('mytrips');
-
-postContainer.insertAdjacentHTML("beforeend", postCardHTML);
-
-return postCardHTML;
+// var postCardHTML = Handlebars.templates.tripEntery(context);
+//
+// var postContainer = document.getElementById('mytrips');
+//
+// postContainer.insertAdjacentHTML("beforeend", postCardHTML);
+//
+// return postCardHTML;
 
 }
 
