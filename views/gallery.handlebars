@@ -5,6 +5,8 @@
     <title>Gallery</title>
     <link rel="stylesheet" href="style.css">
 
+    <!-- <script src="/gallery.js"></script> -->
+    <script src="gallery.js" type="module" charset="utf-8" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.runtime.js"></script>
     <script src="/photoTemplate.js" charset="utf-8"></script>
 
@@ -14,8 +16,11 @@
 
   </head>
   <body>
-    <header>
-      <h1 class="site-title">Group Project</h1>
+    <!-- commenting out header and nav so it can just be in main.handlebars -->
+    <header class="main-header">
+      <div class="logo-image-container">
+        <img src="tripjournallogo.png" alt="Trip Journal: Your Travel Memories Online">
+      </div>
     </header>
 
     <nav class="navbar">
@@ -26,9 +31,21 @@
       </ul>
     </nav>
 
-    {{#each photos}}
-        {{> photo}}
-    {{/each}}
+    <div class="gallery-stuff-container">
+      <div class="button-container">
+        <a href="#" id="previous-button">&#8249;</a>
+      </div>
+
+      <div class="slideshow-container">
+        {{#each photos}}
+            {{> photo}}
+        {{/each}}
+      </div>
+
+      <div class="button-container">
+      <a href="#" id="next-button">&#8250;</a>
+      </div>
+    </div>
 
   </body>
 </html>

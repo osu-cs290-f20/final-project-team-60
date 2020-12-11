@@ -11,15 +11,7 @@ function createTripsList() {
         tripsList[x].push(trips[x].children[0].children[0].children[0].getAttribute('id'));
         tripsList[x].push(trips[x].children[0].children[2].children[1].children[1].textContent);
         tripsList[x].push(trips[x].children[0].children[2].children[2].children[1].textContent);
-        
-        var locationVal = trips[x].children[0].children[2].children[3].textContent;  
- 
-        var places = locationVal.split(' ');
-        tripsList[x].push(places[0]);
-        tripsList[x].push(places[1]);
-        tripsList[x].push(places[2]);
-    
-        tripsList[x].push(trips[x].children[0].children[2].children[4].textContent);
+        tripsList[x].push(trips[x].children[0].children[2].children[3].textContent);  
     }
 
     while (trips.length > 0) {
@@ -36,6 +28,23 @@ function createTripsList() {
 function removeTrip(tripsLength, x) {
     document.getElementsByClassName('trip-remove')[tripsLength].addEventListener('click', function() { 
         trips[tripsLength].remove();
+
+        var tripReq = new XMLHttpRequest();
+        reqURL = "/index.html/deleteTrip";
+        tripReq.open('DELETE', reqURL);
+
+        var tripBody = JSON.stringify({
+            index: tripsLength,
+            tripPostImage: tripsList[tripsLength][1],
+            tripTitle: tripsList[tripsLength][0],
+            tripStartDate: tripsList[tripsLength][3],
+            tripEndDate: tripsList[tripsLength][4],
+            location: tripsList[tripsLength][5]
+        });
+
+        tripReq.setRequestHeader('Content-Type', 'application/json');
+        tripReq.send(tripBody);
+
         tripsList.splice(x, 1);
 
         for (var i = x; i < trips.length - 1; i++) {
@@ -139,7 +148,7 @@ function insertTrip(x) {
     newTripInfo.appendChild(newEndDate);
 
     var newLocation = document.createElement('div');
-    var l = document.createTextNode(tripsList[x][5] + ' ' + tripsList[x][6] + ' ' + tripsList[x][7]);
+    var l = document.createTextNode(tripsList[x][5]);
     newLocation.className = "trip-location";
     newLocation.appendChild(l);
     newTripInfo.appendChild(newLocation);
@@ -169,7 +178,7 @@ function filterTrips() {
         if (tripsList[x][0].toLowerCase().includes(title) &&
             tripsList[x][3].includes(startDate) &&
             tripsList[x][4].includes(endDate) &&
-            tripsList[x][11].includes(country)) {
+            tripsList[x][5].includes(country)) {
 
             insertTrip(x);
             removeTrip(tripsLength, x);

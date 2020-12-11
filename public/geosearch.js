@@ -48,6 +48,20 @@ form.addEventListener('submit', async (event) => {
 
   resultDiv.insertAdjacentHTML( 'afterbegin', t );
 
+
+  leafletImage(map, function(err, canvas) {
+    // now you have canvas
+    // example thing to do with that canvas:
+    var img = document.createElement('img');
+    img.setAttribute("id", "tempimg");
+    var dimensions = map.getSize();
+    img.width = dimensions.x;
+    img.height = dimensions.y;
+    img.src = canvas.toDataURL();
+    document.getElementById('tripimg').innerHTML = '';
+    document.getElementById('tripimg').appendChild(img);
+  });
+
   document.getElementById("trip-plan-forum").style.display = "block";
   document.getElementById("button-close").style.display = "inline";
 
@@ -71,27 +85,37 @@ cancel.addEventListener("click", removeLocation);
 
 function insertNewPost() {
 
-  var date1 = new Date(document.getElementById("trip-start-date").value);
-  var date2 = new Date(document.getElementById("trip-end-date").value);
-
-  var diffTime = date2 - date1;
-  console.log("Difftime", diffTime);
-  var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  // var date1 = new Date(document.getElementById("trip-start-date").value);
+  // var date2 = new Date(document.getElementById("trip-end-date").value);
+  //
+  // var diffTime = date2 - date1;
+  // console.log("Difftime", diffTime);
+  // var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
   var postRequest = new XMLHttpRequest();
   var reqURL = "/trip.html/addTrip";
   postRequest.open('POST', reqURL);
 
-var context = JSON.stringify({
+// var context = JSON.stringify({
 
+// var postImage;
+//
+
+var img = document.getElementById("tempimg");
+
+var context = JSON.stringify({
 location: document.getElementById("results").textContent,
 tripStartDate: document.getElementById("trip-start-date").value,
 tripEndDate: document.getElementById("trip-start-date").value,
-time: diffDays,
 longitude: long,
-latitude: lat
-
+latitude: lat,
+images: document.getElementById("trip-image-url-input").value,
+mapImage: img.src
 });
+
+//tripPostImage:
+
+// });
 
 postRequest.setRequestHeader('Content-Type', 'application/json' );
 postRequest.send(context);
@@ -101,6 +125,7 @@ postRequest.send(context);
 // var postContainer = document.getElementById('mytrips');
 //
 // postContainer.insertAdjacentHTML("beforeend", postCardHTML);
+//
 //
 // return postCardHTML;
 

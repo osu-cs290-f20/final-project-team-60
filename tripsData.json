@@ -1,8 +1,10 @@
 [
   {
     "tripPostImage": "https://cdn.pixabay.com/photo/2016/12/12/22/31/japan-1902834_1280.jpg",
-    "tripStartDate": "2018/10/3",
-    "tripEndDate": "2018/10/6",
+    "tripTitle": "Japan 2018",
+    "tripStartDate": "2018-10-03",
+    "tripEndDate": "2018-10-06",
+    "duration": "4",
     "location": "Japan",
     "latitude": "139.2394179",
     "longitude": "36.5748441",
@@ -29,13 +31,14 @@
       "https://cdn.pixabay.com/photo/2017/01/28/02/24/japan-2014619_1280.jpg",
       "https://cdn.pixabay.com/photo/2017/01/28/02/24/japan-2014616_1280.jpg",
       "https://cdn.pixabay.com/photo/2019/06/20/19/03/japan-4287832_1280.jpg"
-    ],
-    "mapImage": ""
+    ]
   },
   {
     "tripPostImage": "https://cdn.pixabay.com/photo/2018/04/25/09/26/eiffel-tower-3349075_1280.jpg",
-    "tripStartDate": "2021/5/11",
-    "tripEndDate": "2021/5/13",
+    "tripTitle": "Paris 2021",
+    "tripStartDate": "2021-05-11",
+    "tripEndDate": "2021-05-13",
+    "duration": "3",
     "location": "France",
     "latitude": "1.8883335",
     "longitude": "46.603354",
@@ -53,13 +56,14 @@
       "https://cdn.pixabay.com/photo/2015/07/13/14/40/paris-843229_1280.jpg",
       "https://cdn.pixabay.com/photo/2013/04/09/08/08/building-102110_1280.jpg",
       "https://cdn.pixabay.com/photo/2017/07/15/13/45/french-restaurant-2506490_1280.jpg"
-    ],
-    "mapImage": ""
+    ]
   },
   {
     "tripPostImage": "https://cdn.pixabay.com/photo/2015/07/29/22/56/india-866692_1280.jpg",
-    "tripStartDate": "2021/6/12",
-    "tripEndDate": "2021/6/13",
+    "tripTitle": "India 2021",
+    "tripStartDate": "2021-06-12",
+    "tripEndDate": "2021-06-13",
+    "duration": "2",
     "location": "India",
     "latitude": "78.6677428",
     "longitude": "22.3511148",
@@ -75,7 +79,6 @@
       "https://cdn.pixabay.com/photo/2020/06/14/15/55/landscape-5298395_1280.jpg",
       "https://cdn.pixabay.com/photo/2013/08/05/06/21/sunset-169925_1280.jpg",
       "https://cdn.pixabay.com/photo/2014/04/05/11/27/buffet-315691_1280.jpg"
-    ],
-    "mapImage": ""
+    ]
   }
 ]

@@ -1,15 +1,49 @@
+/* body {
+  margin: 0;
+  font-family: 'Open Sans Condensed', sans-serif;
+} */
+
 body {
   margin: 0;
   font-family: 'Open Sans Condensed', sans-serif;
+  font-family:sans-serif;
+  background-color: #9CC4F4;
 }
 
-nav {
-  background-color: black;
+header {
+  font-family: 'Open Sans Condensed', sans-serif;
+  padding: 20px;
+  justify-content:center;
+  background-color: #7AB4FB;
 }
+
+.logo-image-container {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/* nav {
+  background-color: black;
+} */
+
+nav {
+  background-color: #F2CBFC;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+/* .navitem {
+  display: inline-block;
+  padding: 0 10px;
+} */
 
 .navitem {
   display: inline-block;
+  justify-content: center;
   padding: 0 10px;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .navitem a{
@@ -20,7 +54,18 @@ main {
     display: flex;
 }
 
+/* .cards {
+  display: inline-block;
+  border: 1px solid grey;
+  margin: 10px;
+  padding: 5px;
+  width: 200px;
+  height: 200px;
+  background-color: #cae8d9;
+} */
+
 .cards {
+  font-family: 'Open Sans Condensed', sans-serif;
   display: inline-block;
   border: 1px solid grey;
   margin: 10px;
@@ -32,11 +77,11 @@ main {
 
 /* Basic styling for trip.html */
 
-* {
+/* * {
 margin-top: 0px;
 margin-left: 0px;
 margin-right: 0px;
-}
+} */
 
 .site-title {
   margin: 20px;
@@ -52,28 +97,29 @@ margin-right: 0px;
   margin-left: 20px;
   margin-top: 10px;
   margin-bottom: 4px;
-  font-family:  "Courier New", "Lucida Console", monospace;
+  /* font-family:  "Courier New", "Lucida Console", monospace; */
+  font-family: 'Open Sans Condensed', sans-serif;
   font-weight: lighter;
 }
 
-#page-header {
+/* #page-header {
   display: flex;
   background-color: black;
   border-color: white;
   border-top-style: solid;
-}
+} */
 
-header {
+/* header {
   background-color: black;
   display: flex;
   align-items: center;
   position: relative;
-}
+} */
 
-header a {
+/* header a {
   color: #fff;
   text-decoration: none;
-}
+} */
 
 #mapid {
   margin: 10px;
@@ -116,7 +162,7 @@ form {
 }
 
 label {
-  font-family:   "Lucida Console","Courier New", monospace;
+  font-family: 'Open Sans Condensed', sans-serif;
   font-weight: lighter;
 }
 

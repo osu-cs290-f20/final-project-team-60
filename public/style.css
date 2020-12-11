@@ -1,19 +1,35 @@
+
 body {
   margin: 0;
-  /* font-family: 'Open Sans Condensed', sans-serif; */
+  font-family: 'Open Sans Condensed', sans-serif;
   font-family:sans-serif;
+  background-color: #9CC4F4;
 }
 
+/* Header and Nav bar */
 header {
   font-family: 'Open Sans Condensed', sans-serif;
+  padding: 20px;
+  justify-content:center;
+  background-color: #7AB4FB;
+}
+
+.logo-image-container {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 nav {
-  background-color: black;
+  background-color: #F2CBFC;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
 }
 
 .navitem {
   display: inline-block;
+  justify-content: center;
   padding: 0 10px;
   font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -22,7 +38,9 @@ nav {
   color: white;
 }
 
+/* Trip cards */
 .cards {
+  font-family: 'Open Sans Condensed', sans-serif;
   display: inline-block;
   border: 1px solid grey;
   margin: 10px;
@@ -44,11 +62,47 @@ h1 {
   margin-left: 25px;
 }
 
+.trip-contents{
+  background-color: white;
+}
+.trip-info-container {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.trip .trip-contents {
+  width: 300px;
+  height: 325px;
+  border: 1.5px solid #dddddd;
+  border-radius: 5px;
+  margin-top: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  float: left;
+}
+
+.trip .trip-contents .trip-image-container img {
+  width: 280px;
+  height: auto;
+  max-height: 250px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.trip .trip-contents .trip-info-container {
+  margin-left: 10px;
+}
+
+
+/* filter stuff */
 .filter-container {
   display: inline-block;
+  justify-content: center;
+  font-family: 'Open Sans Condensed', sans-serif;
   min-width: 0%;
   max-width: 200%;
   margin-left: 25px;
+  margin: 30px;
   padding: 20px;
   border-radius: 3px;
   background-color: #efefef;
@@ -90,31 +144,7 @@ h1 {
   margin-top: 10px;
 }
 
-.trip .trip-contents {
-  width: 300px;
-  height: 325px;
-  border: 1.5px solid #dddddd;
-  border-radius: 5px;
-  margin-top: 25px;
-  margin-left: 25px;
-  margin-bottom: 25px;
-  float: left;
-}
-
-.trip .trip-contents .trip-image-container img {
-  width: 280px;
-  height: auto;
-  max-height: 250px;
-  margin-left: 10px;
-  margin-top: 10px;
-  margin-bottom: 25px;
-}
-
-.trip .trip-contents .trip-info-container {
-  margin-left: 10px;
-  font-family: Roboto;
-}
-
+/* modal stuff */
 .hidden {
   display: none;
 }
@@ -161,4 +191,64 @@ h1 {
   background: none;
   padding: 0px;
   cursor: pointer;
+}
+
+/* gallery */
+/* photo posts */
+.gallery-stuff-container {
+  display: flex;
+
+}
+
+.slideshow-container {
+  width:auto;
+  display: flex;
+}
+
+.photo-post {
+  max-width: 400px;
+  max-height: 400px;
+  /* display: none; */
+}
+
+.photo-post-image-container img {
+  max-width: 200px;
+  max-height:200px;
+}
+
+.button-container {
+  width: 40px;
+  height: 40px;
+}
+
+#previous-button {
+  font-size: 50px;
+  /* display: flex; */
+  /* justify-content: left; */
+  left: 0;
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+}
+
+.previous-button:hover {
+
+}
+
+#next-button {
+  font-size: 50px;
+  /* display: flex; */
+  /* justify-content: right; */
+  right: 0;
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+}
+
+.next-button:hover {
+
 }
