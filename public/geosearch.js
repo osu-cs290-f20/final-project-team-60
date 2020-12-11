@@ -80,7 +80,7 @@ function insertNewPost() {
 
   var postRequest = new XMLHttpRequest();
   var reqURL = "/trip.html/addTrip";
-  postRequest.open("POST", reqURL);
+  postRequest.open('POST', reqURL);
 
 var context = JSON.stringify({
 
