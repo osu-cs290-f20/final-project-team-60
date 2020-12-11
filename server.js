@@ -91,14 +91,13 @@ app.get('/trip.html', function(req, res, next) {
 app.post('/trip.html/addTrip', function(req, res, next) {
   console.log("req.body", req.body);
   //if all data is present, push it the tripsData array and append the file with new data
-  if(req.body && req.body.tripTitle && req.body.tripStartDate && req.body.tripEndDate && req.body.duration
+  if(req.body && req.body.tripTitle && req.body.tripStartDate && req.body.tripEndDate
   && req.body.location && req.body.latitude && req.body.longitude && req.body.images) {
     tripsData.push({
       tripPostImage: req.body.images[0],
       tripTitle: req.body.tripTitle,
       tripStartDate: req.body.tripStartDate,
       tripEndDate: req.body.tripEndDate,
-      duration: req.body.duration,
       location: req.body.location,
       latitude: req.body.latitude,
       longitude: req.body.longitude,
