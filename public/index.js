@@ -9,27 +9,10 @@ function createTripsList() {
         tripsList[x].push(trips[x].getAttribute('data-title'));
         tripsList[x].push(trips[x].children[0].children[1].children[0].src);
         tripsList[x].push(trips[x].children[0].children[0].children[0].getAttribute('id'));
-
-        var date = trips[x].children[0].children[2].children[1].textContent;
-        
-        var startendDate = date.split(' - ');
-        var startDate = startendDate[0].split(' ');
-        var endDate = startendDate[1].split(' ');
-        tripsList[x].push(startDate[0]);
-        tripsList[x].push(startDate[1]);
-        tripsList[x].push(startDate[2]);
-        tripsList[x].push(endDate[0]);
-        tripsList[x].push(endDate[1]);
-        tripsList[x].push(endDate[2]);
-    
-        var locationVal = trips[x].children[0].children[2].children[2].textContent;  
- 
-        var places = locationVal.split(' ');
-        tripsList[x].push(places[0]);
-        tripsList[x].push(places[1]);
-        tripsList[x].push(places[2]);
-    
-        tripsList[x].push(trips[x].children[0].children[2].children[3].textContent);
+        tripsList[x].push(trips[x].children[0].children[2].children[1].children[1].textContent);
+        tripsList[x].push(trips[x].children[0].children[2].children[2].children[1].textContent);
+        tripsList[x].push(trips[x].children[0].children[2].children[3].textContent);  
+        tripsList[x].push(trips[x].children[0].children[2].children[4].textContent);
     }
 
     while (trips.length > 0) {
@@ -70,7 +53,7 @@ function getDescription(tripsLength, x) {
         
         var description = document.createElement('div');
         var para = document.createElement('p');
-        var p = document.createTextNode(tripsList[x][12]);
+        var p = document.createTextNode(tripsList[x][8]);
         para.appendChild(p);
         para.style.display = 'inline';
         description.appendChild(para);
@@ -124,20 +107,38 @@ function insertTrip(x) {
     newButton.appendChild(buttonName);
     newTripInfo.appendChild(newButton);
 
-    var newDate = document.createElement('div');
-    var date = document.createTextNode(tripsList[x][3] + ' ' + tripsList[x][4] + ' ' + tripsList[x][5] + ' - ' + tripsList[x][6] + ' ' + tripsList[x][7] + ' ' + tripsList[x][8]);
-    newDate.className = "trip-date";
-    newDate.appendChild(date);
-    newTripInfo.appendChild(newDate);
+    var newStartDate = document.createElement('div');
+    var startTitle = document.createElement('span');
+    var startTNode = document.createTextNode('Start Date: ');
+    var startdate = document.createElement('span');
+    var startDNode = document.createTextNode(tripsList[x][3]);
+    startdate.className = "trip-start-date";
+    startTitle.appendChild(startTNode);
+    startdate.appendChild(startDNode);
+    newStartDate.appendChild(startTitle);
+    newStartDate.appendChild(startdate);
+    newTripInfo.appendChild(newStartDate);
+
+    var newEndDate = document.createElement('div');
+    var endTitle = document.createElement('span');
+    var endTNode = document.createTextNode('End Date: ');
+    var enddate = document.createElement('span');
+    var endDNode = document.createTextNode(tripsList[x][4]);
+    enddate.className = "trip-end-date";
+    endTitle.appendChild(endTNode);
+    enddate.appendChild(endDNode);
+    newEndDate.appendChild(endTitle);
+    newEndDate.appendChild(enddate);
+    newTripInfo.appendChild(newEndDate);
 
     var newLocation = document.createElement('div');
-    var l = document.createTextNode(tripsList[x][9] + ' ' + tripsList[x][10] + ' ' + tripsList[x][11]);
+    var l = document.createTextNode(tripsList[x][5]);
     newLocation.className = "trip-location";
     newLocation.appendChild(l);
     newTripInfo.appendChild(newLocation);
 
     var newDescription = document.createElement('p');
-    d = document.createTextNode(tripsList[x][12]);
+    d = document.createTextNode(tripsList[x][8]);
     newDescription.appendChild(d);
     newTripInfo.appendChild(newDescription);
     
@@ -147,52 +148,28 @@ function insertTrip(x) {
 function filterTrips() {
     var trips = document.getElementsByClassName('trip');
     var title = document.getElementById('filter-trip-name').value.toLowerCase();
-    var startMonth = document.getElementById('filter-start-month').value;
-    var startDay = document.getElementById('filter-start-day').value + ','; 
-    var startYear = document.getElementById('filter-start-year').value;
-    var endMonth = document.getElementById('filter-end-month').value; 
-    var endDay = document.getElementById('filter-end-day').value;
-    var endYear = document.getElementById('filter-end-year').value;   
+    var startDate = document.getElementById('filter-start-date').value;
+    var endDate = document.getElementById('filter-end-date').value;  
     var country = document.getElementById('filter-country').value;   
 
-    if (document.getElementById('filter-start-day').value != '') {
-        if (document.getElementById('filter-start-day').value > 31 || document.getElementById('filter-start-day').value < 1 ||
-            (document.getElementById('filter-start-day').value == 31 && (startMonth == 'Febuary' || startMonth == 'April' || startMonth == 'June' || startMonth == 'September' || startMonth == 'November')) ||
-            (document.getElementById('filter-start-day').value == 29 && startMonth == 'Febuary' && startYear % 4 > 0)) {
+    while (trips.length > 0) {
+        trips[0].remove();
+    }
 
-            alert("Invalid start date");
-        }
-    } else if (document.getElementById('filter-end-day').value != '') {
-        if (document.getElementById('filter-end-day').value > 31 || document.getElementById('filter-end-day').value < 1 ||
-               (document.getElementById('filter-end-day').value == 31 && (endMonth == 'Febuary' || endMonth == 'April' || endMonth == 'June' || endMonth == 'September' || endMonth == 'November')) ||
-               (document.getElementById('filter-end-day').value == 29 && endMonth == 'Febuary' && endYear % 4 > 0)) {
-        
-        alert("Invalid end date");
-        }
-    } else {
-        while (trips.length > 0) {
-            trips[0].remove();
-        }
-    
-        var tripsLength = 0;
-  
-        for (var x = 0; x < tripsList.length; x++) {
-            if (tripsList[x][0].toLowerCase().includes(title) &&
-                tripsList[x][3].includes(startMonth) &&
-                tripsList[x][4].includes(startDay) &&
-                tripsList[x][5].includes(startYear) &&
-                tripsList[x][6].includes(endMonth) &&
-                tripsList[x][7].includes(endDay) &&
-                tripsList[x][8].includes(endYear) &&
-                tripsList[x][11].includes(country)) {
-    
-                insertTrip(x);
-                removeTrip(tripsLength, x);
-                getDescription(tripsLength, x);
-                tripsLength++;
-            }
+    var tripsLength = 0;
+
+    for (var x = 0; x < tripsList.length; x++) {
+        if (tripsList[x][0].toLowerCase().includes(title) &&
+            tripsList[x][3].includes(startDate) &&
+            tripsList[x][4].includes(endDate) &&
+            tripsList[x][5].includes(country)) {
+
+            insertTrip(x);
+            removeTrip(tripsLength, x);
+            getDescription(tripsLength, x);
+            tripsLength++;
         }
     }
 }
 
-document.getElementById('filter-update-button').addEventListener('click', function() { filterTrips() });
+document.getElementById('filter-update-button').addEventListener('click', function() { filterTrips() }); 

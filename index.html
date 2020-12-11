@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Home</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.runtime.js" charset="utf-8" defer></script>
     <link rel="stylesheet" href="style.css">
     <script src="public/index.js" charset="utf-8" defer></script>
 
@@ -23,10 +24,14 @@
         <li class="navitem"><a href="/trip.html">Add a post</a></li>
       </ul>
     </nav>
-
+    
     <main>
       <aside class="filter-container">
         <h2>Filter</h2>
+
+        <div>
+          <button id="filter-update-button" class="action-button">Update</button>
+        </div>
 
         <div class="filter-input-container">
           <label for="filter-trip-name" class="filter-input-label">Trip Title</label>
@@ -38,58 +43,14 @@
         <div class="filter-input-container">
           <label for="filter-date" class="filter-input-label">Start Date</label>
           <div class="filter-input-element">
-            <select id="filter-start-month" class="filter-input">
-              <option selected value="">Any</option>
-              <option>January</option>
-              <option>Febuary</option>
-              <option>March</option>
-              <option>April</option>
-              <option>May</option>
-              <option>June</option>
-              <option>July</option>
-              <option>August</option>
-              <option>September</option>
-              <option>October</option>
-              <option>November</option>
-              <option>December</option>
-            </select>
-
-            /
-
-            <input type="number" id="filter-start-day" class="filter-input">
-
-            /
-
-            <input type="number" id="filter-start-year" class="filter-input">
+            <input type="date" id="filter-start" class="filter-input">
           </div>
         </div>
 
         <div class="filter-input-container">
           <label for="filter-date" class="filter-input-label">End Date</label>
           <div class="filter-input-element">
-            <select id="filter-end-month" class="filter-input">
-              <option selected value="">Any</option>
-              <option>January</option>
-              <option>Febuary</option>
-              <option>March</option>
-              <option>April</option>
-              <option>May</option>
-              <option>June</option>
-              <option>July</option>
-              <option>August</option>
-              <option>September</option>
-              <option>October</option>
-              <option>November</option>
-              <option>December</option>
-            </select>
-
-            /
-
-            <input type="number" id="filter-end-day" class="filter-input">
-
-            /
-
-            <input type="number" id="filter-end-year" class="filter-input">
+            <input type="date" id="filter-end" class="filter-input">
           </div>
         </div>
 
@@ -100,9 +61,6 @@
           </div>
         </div>
 
-        <div>
-          <button id="filter-update-button" class="action-button">Update</button>
-        </div>
       </aside>
 
       <section id="trips">
@@ -115,8 +73,18 @@
               <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg">
             </div>
             <div class="trip-info-container">
-              <button type="button" id="0" class="trip-title">Somewhere</button>
-              <div class="trip-date">September 19, 2020 - October 1, 2020</div>
+              <div>
+                <button type="button" id="0" class="trip-title">Somewhere</button>
+              </div>
+
+              <div>
+                <span>Start Date: </span> <span class="trip-start-date">2020-9-19</span>
+              </div>
+              
+              <div>
+                <span>End Date: </span> <span class="trip-end-date">2020-9-20</span>
+              </div>
+              
               <div class="trip-location">Portland, Oregon USA</div>
               <p>This is a place</p>
             </div>
@@ -132,14 +100,24 @@
               <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg">
             </div>
             <div class="trip-info-container">
-              <button type="button" id="1" class="trip-title">Someplace</button>
-              <div class="trip-date">June 2, 2020 - July 1, 2020</div>
+              <div>
+                <button type="button" id="1" class="trip-title">Someplace</button>
+              </div>
+
+              <div>
+                <span>Start Date: </span> <span class="trip-start-date">2020-11-1</span>
+              </div>
+              
+              <div>
+                <span>End Date: </span> <span class="trip-end-date">2020-12-20</span>
+              </div>
+              
               <div class="trip-location">Corvallis, Oregon USA</div>
               <p>kk</p>
             </div>
           </div>
         </div>
-
+<!--
         <div class="trip" data-title="other">
           <div class="trip-contents">
             <div class="trip-remove-container">
@@ -173,6 +151,7 @@
             </div>
           </div>
         </div>
+      -->
       </section>
     </main>
 
