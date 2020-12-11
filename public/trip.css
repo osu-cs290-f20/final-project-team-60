@@ -193,7 +193,7 @@ input {
 
  #trip-plan-forum {
    font-family: 'Open Sans Condensed', sans-serif;
-   display: block;
+   display: none;
    margin: 10px;
    width: 50%;
    height: 200px;
@@ -270,4 +270,16 @@ font-size: 24px;
 #cancel-trip-button:hover{
   color: snow;
   background-color: crimson;
+}
+
+.trip-create-success-container {
+  width: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 20px;
+}
+
+#trip-create-success {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 30px;
 }

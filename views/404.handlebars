@@ -1,5 +1,38 @@
-<main class="error-container">
-  <h2>404</h2>
-  <h3>Woops!  We couldn't find that page.</h3>
-  <h3>You requested {{url}}.</h3>
-</main>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>404</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.runtime.js"></script>
+    <script src="/photoTemplate.js" charset="utf-8"></script>
+
+    <!-- font stuff -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo-image-container">
+        <img src="tripjournallogo.png" alt="Trip Journal: Your Travel Memories Online">
+      </div>
+    </header>
+
+    <nav class="navbar">
+      <ul class="navlist">
+        <li class="navitem"><a href="/index.html">Home</a></li>
+        <li class="navitem"><a href="/gallery.html">Gallery</a></li>
+        <li class="navitem"><a href="/trip.html">Plan a Trip</a></li>
+      </ul>
+    </nav>
+
+    <main class="error-container">
+      <h2>404</h2>
+      <h3>Woops!  We couldn't find that page.</h3>
+      <h3>You requested {{url}}.</h3>
+    </main>
+
+  </body>
+</html>
