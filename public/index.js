@@ -33,19 +33,20 @@ function removeTrip(tripsLength, x) {
         var tripReq = new XMLHttpRequest();
         reqURL = "/index.html/deleteTrip";
         tripReq.open('DELETE', reqURL);
-
+/*
         var tripBody = JSON.stringify({
             tripPostImage: tripsList[x][1],
             tripStartDate: tripsList[x][2],
             tripEndDate: tripsList[x][3],
             location: tripsList[x][0],
             latitude: tripsList[x][5],
-            longitude: tripsList[x][6]
+            longitude: tripsList[x][6],
+            mapImage: tripsList[x][4]
         });
 
         tripReq.setRequestHeader('Content-Type', 'application/json');
         tripReq.send(tripBody);
-
+*/
         tripsList.splice(x, 1);
 
         for (var i = x; i < trips.length - 1; i++) {
