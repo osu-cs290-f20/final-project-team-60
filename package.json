@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "handlebars views/partials/filter.handlebars -f public/filterTemplate.js",
+    "build2": "handlebars views/partials/photo.handlebars -f public/photoTemplate.js",
+    "build3": "handlebars views/partials/tripEntery.handlebars -f public/tripEntery.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +27,7 @@
   },
   "homepage": "https://github.com/osu-cs290-f20/final-project-team-60#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "handlebars": "^4.7.6"

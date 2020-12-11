@@ -1,5 +1,6 @@
 var path = require('path');
 var fs = require('fs');
+var bodyParser = require('body-parser');
 var express = require('express');
 var exphbs = require('express-handlebars');
 var tripsData = require('./tripsData.json');
@@ -10,6 +11,8 @@ var port = process.env.PORT || 80;
 
 app.engine('handlebars', exphbs({ defaultLayout: null}));
 app.set('view engine', 'handlebars');
+
+app.use(bodyParser.json({limit: '50mb'}));
 
 app.use(express.json());
 
