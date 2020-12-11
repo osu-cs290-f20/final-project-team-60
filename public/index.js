@@ -11,14 +11,7 @@ function createTripsList() {
         tripsList[x].push(trips[x].children[0].children[0].children[0].getAttribute('id'));
         tripsList[x].push(trips[x].children[0].children[2].children[1].children[1].textContent);
         tripsList[x].push(trips[x].children[0].children[2].children[2].children[1].textContent);
-        
-        var locationVal = trips[x].children[0].children[2].children[3].textContent;  
- 
-        var places = locationVal.split(' ');
-        tripsList[x].push(places[0]);
-        tripsList[x].push(places[1]);
-        tripsList[x].push(places[2]);
-    
+        tripsList[x].push(trips[x].children[0].children[2].children[3].textContent);  
         tripsList[x].push(trips[x].children[0].children[2].children[4].textContent);
     }
 
@@ -139,7 +132,7 @@ function insertTrip(x) {
     newTripInfo.appendChild(newEndDate);
 
     var newLocation = document.createElement('div');
-    var l = document.createTextNode(tripsList[x][5] + ' ' + tripsList[x][6] + ' ' + tripsList[x][7]);
+    var l = document.createTextNode(tripsList[x][5]);
     newLocation.className = "trip-location";
     newLocation.appendChild(l);
     newTripInfo.appendChild(newLocation);
@@ -169,7 +162,7 @@ function filterTrips() {
         if (tripsList[x][0].toLowerCase().includes(title) &&
             tripsList[x][3].includes(startDate) &&
             tripsList[x][4].includes(endDate) &&
-            tripsList[x][11].includes(country)) {
+            tripsList[x][5].includes(country)) {
 
             insertTrip(x);
             removeTrip(tripsLength, x);
@@ -179,4 +172,4 @@ function filterTrips() {
     }
 }
 
-document.getElementById('filter-update-button').addEventListener('click', function() { filterTrips() });
+document.getElementById('filter-update-button').addEventListener('click', function() { filterTrips() }); 
