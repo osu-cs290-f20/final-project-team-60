@@ -16,7 +16,6 @@
 
   </head>
   <body>
-    <!-- commenting out header and nav so it can just be in main.handlebars -->
     <header class="main-header">
       <div class="logo-image-container">
         <img src="tripjournallogo.png" alt="Trip Journal: Your Travel Memories Online">
@@ -32,18 +31,24 @@
     </nav>
 
     <div class="gallery-stuff-container">
-      <div class="button-container">
-        <a href="#" id="previous-button">&#8249;</a>
-      </div>
 
-      <div class="slideshow-container">
-        {{#each photos}}
-            {{> photo}}
-        {{/each}}
+      <div class="gallery-description-container">
+        <p class="gallery-description">Click through pictures people have taken around the world!</p>
       </div>
+      <div class="entire-slideshow-container">
+        <div class="button-container">
+          <a href="#" id="previous-button">&#8249;</a>
+        </div>
 
-      <div class="button-container">
-      <a href="#" id="next-button">&#8250;</a>
+        <div class="slideshow-container">
+          {{#each photos}}
+              {{> photo}}
+          {{/each}}
+        </div>
+
+        <div class="button-container">
+        <a href="#" id="next-button">&#8250;</a>
+        </div>
       </div>
     </div>
 

@@ -25,6 +25,7 @@ nav {
   font-size: 25px;
   display: flex;
   justify-content: center;
+  text-decoration: none;
 }
 
 .navitem {
@@ -32,6 +33,7 @@ nav {
   justify-content: center;
   padding: 0 10px;
   font-family: 'Open Sans Condensed', sans-serif;
+  text-decoration: none !important;
 }
 
 .navitem a{
@@ -42,7 +44,8 @@ nav {
 .cards {
   font-family: 'Open Sans Condensed', sans-serif;
   display: inline-block;
-  border: 1px solid grey;
+  border: 1px solid;
+  border-color: white;
   margin: 10px;
   padding: 5px;
   width: 200px;
@@ -50,13 +53,25 @@ nav {
   background-color: #cae8d9;
 }
 
-p {
+/* remove trip button */
+.trip-remove-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.trip-remove {
+  border: none;
+  bakcground-color: black;
+}
+
+
+/* p {
   display: none;
   padding-left: 20px;
   font-size: 25px;
   float: left;
   max-width: 580px;
-}
+} */
 
 h1 {
   margin-left: 25px;
@@ -64,15 +79,17 @@ h1 {
 
 .trip-contents{
   background-color: white;
+  padding: 7px;
 }
 .trip-info-container {
   font-family: 'Open Sans Condensed', sans-serif;
+  margin: 5px;
 }
 
 .trip .trip-contents {
   width: 300px;
   height: 325px;
-  border: 1.5px solid #dddddd;
+  border: 1.5px solid white;
   border-radius: 5px;
   margin-top: 25px;
   margin-left: 25px;
@@ -83,7 +100,7 @@ h1 {
 .trip .trip-contents .trip-image-container img {
   width: 280px;
   height: auto;
-  max-height: 250px;
+  max-height: 200px;
   margin-left: 10px;
   margin-top: 10px;
   margin-bottom: 25px;
@@ -105,7 +122,8 @@ h1 {
   margin: 30px;
   padding: 20px;
   border-radius: 3px;
-  background-color: #efefef;
+  color: white;
+  background-color: #3C80D4;
 }
 
 .filter-input-container {
@@ -193,9 +211,32 @@ h1 {
   cursor: pointer;
 }
 
-/* gallery */
+/* GALLERY */
+
+/* gallery description */
+.gallery-description-container {
+  width:auto;
+  height:auto;
+  color:white;
+  /* background-color:black; */
+  display: flex;
+  font-size: 20px;
+  justify-content:center;
+}
+.gallery-description {
+  color: white;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin-bottom: 0;
+}
+
+
 /* photo posts */
 .gallery-stuff-container {
+  /* display: flex; */
+  justify-content: center;
+}
+
+.entire-slideshow-container {
   display: flex;
   justify-content: center;
 }
@@ -204,6 +245,7 @@ h1 {
   max-width: 1000px;
   display: flex;
   justify-content: center;
+  margin-top: 0;
   /* margin:0; */
 }
 
@@ -219,6 +261,15 @@ h1 {
 .photo-post-image-container img {
   max-width: 600px;
   max-height: 600px;
+}
+
+.photo-caption-container {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: white;
+  font-size: 22px;
+  /*margin: 10px;*/
+  display: flex;
+  justify-content: center;
 }
 
 .button-container {
