@@ -5,6 +5,8 @@
     "tripStartDate": "October 3, 2018",
     "tripEndDate": "October 6, 2018",
     "location": "Japan",
+    "latitude": "139.2394179",
+    "longitude": "36.5748441",
     "destinations": [
       [
         "Tokyo Skytree"
@@ -36,6 +38,8 @@
     "tripStartDate": "May 11, 2021",
     "tripEndDate": "May 13, 2021",
     "location": "France",
+    "latitude": "1.8883335",
+    "longitude": "46.603354",
     "destinations": [
       [
         "Eiffel Tower",
@@ -58,6 +62,8 @@
     "tripStartDate": "June 12, 2021",
     "tripEndDate": "June 15, 2021",
     "location": "India",
+    "latitude": "78.6677428",
+    "longitude": "22.3511148",
     "destinations": [
       [
         "Taj Mahal"
