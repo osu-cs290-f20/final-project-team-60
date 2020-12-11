@@ -173,7 +173,7 @@ function filterTrips() {
     var title = document.getElementById('filter-trip-name').value.toLowerCase();
     var startDate = document.getElementById('filter-start-date').value;
     var endDate = document.getElementById('filter-end-date').value;  
-    var country = document.getElementById('filter-trip-name').value;   
+    var country = document.getElementById('filter-trip-name').value.toLowerCase();   
 
     while (trips.length > 0) {
         trips[0].remove();
@@ -185,7 +185,7 @@ function filterTrips() {
         if (tripsList[x][0].toLowerCase().includes(title) &&
             tripsList[x][2].includes(startDate) &&
             tripsList[x][3].includes(endDate) &&
-            tripsList[x][0].includes(country)) {
+            tripsList[x][0].toLowerCase().includes(country)) {
 
             insertTrip(x);
             removeTrip(tripsLength, x);
