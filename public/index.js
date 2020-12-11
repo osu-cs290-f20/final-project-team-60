@@ -6,7 +6,7 @@ createTripsList();
 function createTripsList() {
     for (var x = 0; x < trips.length; x++) { 
         tripsList.push([]);
-        tripsList[x].push(trips[x].getAttribute('data-title'));
+        tripsList[x].push(trips[x].children[0].children[3].children[3].textContent);
         tripsList[x].push(trips[x].children[0].children[1].children[0].src);
         tripsList[x].push(trips[x].children[0].children[3].children[1].children[1].textContent);
         tripsList[x].push(trips[x].children[0].children[3].children[2].children[1].textContent);
@@ -163,7 +163,7 @@ function filterTrips() {
     var title = document.getElementById('filter-trip-name').value.toLowerCase();
     var startDate = document.getElementById('filter-start-date').value;
     var endDate = document.getElementById('filter-end-date').value;  
-    var country = document.getElementById('filter-country').value;   
+    var country = document.getElementById('filter-trip-name').value;   
 
     while (trips.length > 0) {
         trips[0].remove();

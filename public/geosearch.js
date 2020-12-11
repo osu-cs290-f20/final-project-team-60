@@ -109,7 +109,7 @@ var images = [document.getElementById("trip-image-url-input").value];
 
 
 var context = JSON.stringify({
-location: document.getElementById("results").textContent,
+location: document.getElementById("results").innerText,
 tripStartDate: document.getElementById("trip-start-date").value,
 tripEndDate: document.getElementById("trip-end-date").value,
 longitude: long,
