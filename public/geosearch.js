@@ -88,8 +88,8 @@ location: document.getElementById("results").textContent,
 tripStartDate: document.getElementById("trip-start-date").value,
 tripEndDate: document.getElementById("trip-start-date").value,
 time: diffDays,
-long: long,
-lat: lat
+longitude: long,
+latitude: lat
 
 });
 
