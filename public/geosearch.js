@@ -78,31 +78,49 @@ function insertNewPost() {
   console.log("Difftime", diffTime);
   var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-  var postRequest = new XMLHttpRequest();
-  var reqURL = "/trip.html/addTrip";
-  postRequest.open('POST', reqURL);
+  // var postRequest = new XMLHttpRequest();
+  // var reqURL = "/trip.html/addTrip";
+  // postRequest.open('POST', reqURL);
 
-var context = JSON.stringify({
+// var context = JSON.stringify({
 
+// var postImage;
+//
+
+var context = {
 location: document.getElementById("results").textContent,
 tripStartDate: document.getElementById("trip-start-date").value,
 tripEndDate: document.getElementById("trip-start-date").value,
 time: diffDays,
 longitude: long,
 latitude: lat
+};
+
+//tripPostImage:
+
+// });
+
+// postRequest.setRequestHeader('Content-Type', 'application/json' );
+// postRequest.send(context);
+
+var postCardHTML = Handlebars.templates.tripEntery(context);
+
+var postContainer = document.getElementById('mytrips');
+
+postContainer.insertAdjacentHTML("beforeend", postCardHTML);
+
+leafletImage(map, function(err, canvas) {
+  var img = document.createElement('img');
+  var dimensions = map.getSize();
+  img.width = dimensions.x;
+  img.height = dimensions.y;
+  img.src = canvas.toDataURL();
+
+document.querySelector('.trip-image-container').appendChild(img);
 
 });
 
-postRequest.setRequestHeader('Content-Type', 'application/json' );
-postRequest.send(context);
-
-// var postCardHTML = Handlebars.templates.tripEntery(context);
-//
-// var postContainer = document.getElementById('mytrips');
-//
-// postContainer.insertAdjacentHTML("beforeend", postCardHTML);
-//
-// return postCardHTML;
+return postCardHTML;
 
 }
 
