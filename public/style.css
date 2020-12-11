@@ -197,23 +197,28 @@ h1 {
 /* photo posts */
 .gallery-stuff-container {
   display: flex;
-
+  justify-content: center;
 }
 
 .slideshow-container {
-  width:auto;
+  max-width: 1000px;
   display: flex;
+  justify-content: center;
+  /* margin:0; */
 }
 
 .photo-post {
-  max-width: 400px;
-  max-height: 400px;
+  /* max-width: 600px;
+  max-height: 400px; */
+  display: block;
+  padding: 20px;
+  margin: 20px;
   /* display: none; */
 }
 
 .photo-post-image-container img {
-  max-width: 200px;
-  max-height:200px;
+  max-width: 600px;
+  max-height: 600px;
 }
 
 .button-container {
@@ -223,14 +228,14 @@ h1 {
 
 #previous-button {
   font-size: 50px;
-  /* display: flex; */
-  /* justify-content: left; */
+  display: flex;
+  justify-content: left;
   left: 0;
   color: white;
-  background-color: black;
-  border-radius: 50%;
   height: 15px;
   width: 15px;
+  position: static;
+  margin: 30px;
 }
 
 .previous-button:hover {
@@ -239,14 +244,15 @@ h1 {
 
 #next-button {
   font-size: 50px;
-  /* display: flex; */
-  /* justify-content: right; */
+  display: flex;
+  justify-content: right;
   right: 0;
   color: white;
-  background-color: black;
-  border-radius: 50%;
   height: 15px;
   width: 15px;
+  position: static;
+
+  margin: 30px;
 }
 
 .next-button:hover {
