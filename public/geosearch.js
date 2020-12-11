@@ -22,6 +22,9 @@ const provider = new GeoSearch.OpenStreetMapProvider();
 const form = document.querySelector('form');
 const input = form.querySelector('input[type="text"]');
 
+var long;
+var lat;
+
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
@@ -29,6 +32,10 @@ form.addEventListener('submit', async (event) => {
   console.log(results); // » [{}, {}, {}, ...]
 
   map.setView([results[0].y, results[0].x], 6);
+
+  lat = results[0].y;
+  long = results[0].x;
+  console.log("Long = ", long, "Lat = ", lat);
 
   var resultDiv = document.getElementById("results");
 
@@ -77,7 +84,8 @@ location: document.getElementById("results").textContent,
 startDate: document.getElementById("trip-start-date").value,
 endDate: document.getElementById("trip-start-date").value,
 time: diffDays,
-notes: 6
+long: long,
+lat: lat
 
 };
 
