@@ -81,8 +81,8 @@ function insertNewPost() {
 var context = {
 
 location: document.getElementById("results").textContent,
-startDate: document.getElementById("trip-start-date").value,
-endDate: document.getElementById("trip-start-date").value,
+tripStartDate: document.getElementById("trip-start-date").value,
+tripEndDate: document.getElementById("trip-start-date").value,
 time: diffDays,
 long: long,
 lat: lat

@@ -32,8 +32,8 @@ templates['tripEntery'] = template({"compiler":[8,">= 4.3.0"],"main":function(co
     + alias4(((helper = (helper = lookupProperty(helpers,"location") || (depth0 != null ? lookupProperty(depth0,"location") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"location","hash":{},"data":data,"loc":{"start":{"line":30,"column":63},"end":{"line":30,"column":75}}}) : helper)))
     + "</button>\r\n      <div class=\"trip-date\">"
     + alias4(((helper = (helper = lookupProperty(helpers,"tripStartDate") || (depth0 != null ? lookupProperty(depth0,"tripStartDate") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"tripStartDate","hash":{},"data":data,"loc":{"start":{"line":31,"column":29},"end":{"line":31,"column":46}}}) : helper)))
-    + " - "
-    + alias4(((helper = (helper = lookupProperty(helpers,"tripEndDate") || (depth0 != null ? lookupProperty(depth0,"tripEndDate") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"tripEndDate","hash":{},"data":data,"loc":{"start":{"line":31,"column":49},"end":{"line":31,"column":64}}}) : helper)))
+    + " to "
+    + alias4(((helper = (helper = lookupProperty(helpers,"tripEndDate") || (depth0 != null ? lookupProperty(depth0,"tripEndDate") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"tripEndDate","hash":{},"data":data,"loc":{"start":{"line":31,"column":50},"end":{"line":31,"column":65}}}) : helper)))
     + "</div>\r\n            <div class=\"trip length\">Trip length: "
     + alias4(((helper = (helper = lookupProperty(helpers,"time") || (depth0 != null ? lookupProperty(depth0,"time") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"time","hash":{},"data":data,"loc":{"start":{"line":32,"column":50},"end":{"line":32,"column":58}}}) : helper)))
     + " days</div>\r\n      <div class=\"trip-location\">"
