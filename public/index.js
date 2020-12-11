@@ -12,7 +12,6 @@ function createTripsList() {
         tripsList[x].push(trips[x].children[0].children[2].children[1].children[1].textContent);
         tripsList[x].push(trips[x].children[0].children[2].children[2].children[1].textContent);
         tripsList[x].push(trips[x].children[0].children[2].children[3].textContent);  
-        tripsList[x].push(trips[x].children[0].children[2].children[4].textContent);
     }
 
     while (trips.length > 0) {
@@ -29,6 +28,23 @@ function createTripsList() {
 function removeTrip(tripsLength, x) {
     document.getElementsByClassName('trip-remove')[tripsLength].addEventListener('click', function() { 
         trips[tripsLength].remove();
+
+        var tripReq = new XMLHttpRequest();
+        reqURL = "/index.html/deleteTrip";
+        tripReq.open('DELETE', reqURL);
+
+        var tripBody = JSON.stringify({
+            index: tripsLength,
+            tripPostImage: tripsList[tripsLength][1],
+            tripTitle: tripsList[tripsLength][0],
+            tripStartDate: tripsList[tripsLength][3],
+            tripEndDate: tripsList[tripsLength][4],
+            location: tripsList[tripsLength][5]
+        });
+
+        tripReq.setRequestHeader('Content-Type', 'application/json');
+        tripReq.send(tripBody);
+
         tripsList.splice(x, 1);
 
         for (var i = x; i < trips.length - 1; i++) {
@@ -172,4 +188,4 @@ function filterTrips() {
     }
 }
 
-document.getElementById('filter-update-button').addEventListener('click', function() { filterTrips() }); 
+document.getElementById('filter-update-button').addEventListener('click', function() { filterTrips() });
