@@ -1,18 +1,18 @@
 <div class="trip" data-title={{location}} data-lat={{latitude}} data-long={{longitude}}>
   <div class="trip-contents">
     <div class="trip-remove-container">
-      <button type="button" id={{index}} class="trip-remove">X</button>
+      <button type="button" class="trip-remove">X</button>
     </div>
     <div class="trip-image-container">
       <img src={{tripPostImage}}>
     </div>
 
-    <div class="trip-map-container" hidden>
+    <div class="trip-map-container" id='hidden'>
       <img src={{mapImage}}>
     </div>
     <div class="trip-info-container">
       <div>
-        <button type="button" id={{index}} class="trip-title">{{location}}</button>
+        <button type="button" class="trip-title">{{location}}</button>
       </div>
 
       <div>
@@ -22,9 +22,7 @@
       <div>
         <span>End Date: </span> <span class="trip-end-date">{{tripEndDate}}</span>
       </div>
-      <!-- <div class="trip length">Trip length: {{duration}} days</div> -->
       <div class="trip-location">{{location}}</div>
-      <p>{{description}}</p>
     </div>
   </div>
 </div>
