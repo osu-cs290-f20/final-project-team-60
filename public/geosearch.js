@@ -85,51 +85,49 @@ cancel.addEventListener("click", removeLocation);
 
 function insertNewPost() {
 
-  var date1 = new Date(document.getElementById("trip-start-date").value);
-  var date2 = new Date(document.getElementById("trip-end-date").value);
+  // var date1 = new Date(document.getElementById("trip-start-date").value);
+  // var date2 = new Date(document.getElementById("trip-end-date").value);
+  //
+  // var diffTime = date2 - date1;
+  // console.log("Difftime", diffTime);
+  // var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-  var diffTime = date2 - date1;
-  console.log("Difftime", diffTime);
-  var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-  // var postRequest = new XMLHttpRequest();
-  // var reqURL = "/trip.html/addTrip";
-  // postRequest.open('POST', reqURL);
+  var postRequest = new XMLHttpRequest();
+  var reqURL = "/trip.html/addTrip";
+  postRequest.open('POST', reqURL);
 
 // var context = JSON.stringify({
 
 // var postImage;
 //
 
-var img = document.getElementById("tempimg")
+var img = document.getElementById("tempimg");
 
-console.log("Img", img.src);
-
-var context = {
+var context = JSON.stringify({
 location: document.getElementById("results").textContent,
 tripStartDate: document.getElementById("trip-start-date").value,
 tripEndDate: document.getElementById("trip-start-date").value,
-duration: diffDays,
 longitude: long,
 latitude: lat,
-tripPostImage: img.src
-};
+images: document.getElementById("trip-image-url-input").value,
+mapImage: img.src
+});
 
 //tripPostImage:
 
 // });
 
-// postRequest.setRequestHeader('Content-Type', 'application/json' );
-// postRequest.send(context);
+postRequest.setRequestHeader('Content-Type', 'application/json' );
+postRequest.send(context);
 
-var postCardHTML = Handlebars.templates.tripEntery(context);
-
-var postContainer = document.getElementById('mytrips');
-
-postContainer.insertAdjacentHTML("beforeend", postCardHTML);
-
-
-return postCardHTML;
+// var postCardHTML = Handlebars.templates.tripEntery(context);
+//
+// var postContainer = document.getElementById('mytrips');
+//
+// postContainer.insertAdjacentHTML("beforeend", postCardHTML);
+//
+//
+// return postCardHTML;
 
 }
 
