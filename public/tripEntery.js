@@ -14,8 +14,6 @@ templates['tripEntery'] = template({"compiler":[8,">= 4.3.0"],"main":function(co
     + alias4(((helper = (helper = lookupProperty(helpers,"latitude") || (depth0 != null ? lookupProperty(depth0,"latitude") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"latitude","hash":{},"data":data,"loc":{"start":{"line":1,"column":51},"end":{"line":1,"column":63}}}) : helper)))
     + " data-long="
     + alias4(((helper = (helper = lookupProperty(helpers,"longitude") || (depth0 != null ? lookupProperty(depth0,"longitude") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"longitude","hash":{},"data":data,"loc":{"start":{"line":1,"column":74},"end":{"line":1,"column":87}}}) : helper)))
-    + " data-mapurl="
-    + alias4(((helper = (helper = lookupProperty(helpers,"mapImage") || (depth0 != null ? lookupProperty(depth0,"mapImage") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"mapImage","hash":{},"data":data,"loc":{"start":{"line":1,"column":100},"end":{"line":1,"column":112}}}) : helper)))
     + ">\r\n  <div class=\"trip-contents\">\r\n    <div class=\"trip-remove-container\">\r\n      <button type=\"button\" id="
     + alias4(((helper = (helper = lookupProperty(helpers,"index") || (depth0 != null ? lookupProperty(depth0,"index") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data,"loc":{"start":{"line":4,"column":31},"end":{"line":4,"column":40}}}) : helper)))
     + " class=\"trip-remove\">X</button>\r\n    </div>\r\n    <div class=\"trip-image-container\">\r\n      <img src="
