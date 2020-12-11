@@ -21,17 +21,16 @@
   </div>
 </div> -->
 
-<div class="trip" data-title={{tripTitle}}>
+<div class="trip" data-title={{location}} data-lat={{lat}} data-long={{long}}>
   <div class="trip-contents">
     <div class="trip-image-container">
       <img src={{tripPostImage}}>
     </div>
     <div class="trip-info-container">
-      <button type="button" id="0" class="trip-title">{{tripTitle}}</button>
+      Trip to: <button type="button" id="0" class="trip-title">{{location}}</button>
       <div class="trip-date">{{tripStartDate}} - {{tripEndDate}}</div>
+            <div class="trip length">Trip length: {{time}} days</div>
       <div class="trip-location">{{location}}</div>
-      <!-- Whats this for? -->
-      <p>This is a place</p>
     </div>
   </div>
 </div>
