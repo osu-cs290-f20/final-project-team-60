@@ -289,3 +289,9 @@ h1 {
 .next-button:hover {
 
 }
+
+/* 404 */
+.error-container {
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin-left: 500px;
+}
