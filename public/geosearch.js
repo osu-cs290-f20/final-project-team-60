@@ -103,13 +103,17 @@ function insertNewPost() {
 
 var img = document.getElementById("tempimg");
 
+var images = [document.getElementById("trip-image-url-input").value];
+
+
 var context = JSON.stringify({
 location: document.getElementById("results").textContent,
 tripStartDate: document.getElementById("trip-start-date").value,
 tripEndDate: document.getElementById("trip-start-date").value,
 longitude: long,
 latitude: lat,
-images: document.getElementById("trip-image-url-input").value,
+images: images,
+postTitleImage: document.getElementById("trip-image-url-input").value,
 mapImage: img.src
 });
 
