@@ -40,6 +40,22 @@ nav {
   color: white;
 }
 
+/* page descriptions */
+.page-description-container {
+  width:auto;
+  height:auto;
+  color:white;
+  /* background-color:black; */
+  display: flex;
+  font-size: 20px;
+  justify-content:center;
+}
+.page-description {
+  color: white;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin-bottom: 0;
+}
+
 /* Trip cards */
 .cards {
   font-family: 'Open Sans Condensed', sans-serif;
@@ -200,23 +216,6 @@ h1 {
 }
 
 /* GALLERY */
-
-/* gallery description */
-.gallery-description-container {
-  width:auto;
-  height:auto;
-  color:white;
-  /* background-color:black; */
-  display: flex;
-  font-size: 20px;
-  justify-content:center;
-}
-.gallery-description {
-  color: white;
-  font-family: 'Open Sans Condensed', sans-serif;
-  margin-bottom: 0;
-}
-
 
 /* photo posts */
 .gallery-stuff-container {

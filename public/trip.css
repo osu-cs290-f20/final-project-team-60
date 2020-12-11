@@ -283,3 +283,19 @@ font-size: 24px;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 30px;
 }
+
+/* page descriptions */
+.page-description-container {
+  width:auto;
+  height:auto;
+  color:white;
+  /* background-color:black; */
+  display: flex;
+  font-size: 20px;
+  justify-content:center;
+}
+.page-description {
+  color: white;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin-bottom: 0;
+}
