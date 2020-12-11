@@ -20,23 +20,9 @@
     </div>
   </div>
 </div> -->
-<!--
-<div class="trip" data-title={{location}} data-lat={{latitude}} data-long={{longitude}}>
-  <div class="trip-contents">
-    <div class="trip-image-container">
-      {{tripPostImage}}
-    </div>
-    <div class="trip-info-container">
-      Trip to: <button type="button" id="0" class="trip-title">{{location}}</button>
-      <div class="trip-date">{{tripStartDate}} to {{tripEndDate}}</div>
-            <div class="trip length">Trip length: {{time}} days</div>
-      <div class="trip-location">{{location}}</div>
-    </div>
-  </div>
-</div>
--->
 
-<div class="trip" data-title={{location}} data-longitude={{longitude}} data-latitude={{latitude}}>
+
+<div class="trip" data-title={{location}} data-lat={{latitude}} data-long={{longitude}}>
   <div class="trip-contents">
     <div class="trip-remove-container">
       <button type="button" id={{index}} class="trip-remove">X</button>
@@ -56,7 +42,7 @@
       <div>
         <span>End Date: </span> <span class="trip-end-date">{{tripEndDate}}</span>
       </div>
-
+      <!-- <div class="trip length">Trip length: {{duration}} days</div> -->
       <div class="trip-location">{{location}}</div>
       <p>{{description}}</p>
     </div>
