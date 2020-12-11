@@ -22,6 +22,9 @@ const provider = new GeoSearch.OpenStreetMapProvider();
 const form = document.querySelector('form');
 const input = form.querySelector('input[type="text"]');
 
+var long;
+var lat;
+
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
@@ -29,6 +32,10 @@ form.addEventListener('submit', async (event) => {
   console.log(results); // » [{}, {}, {}, ...]
 
   map.setView([results[0].y, results[0].x], 6);
+
+  lat = results[0].y;
+  long = results[0].x;
+  console.log("Long = ", long, "Lat = ", lat);
 
   var resultDiv = document.getElementById("results");
 
@@ -40,6 +47,20 @@ form.addEventListener('submit', async (event) => {
   resultDiv.innerHTML = "";
 
   resultDiv.insertAdjacentHTML( 'afterbegin', t );
+
+
+  leafletImage(map, function(err, canvas) {
+    // now you have canvas
+    // example thing to do with that canvas:
+    var img = document.createElement('img');
+    img.setAttribute("id", "tempimg");
+    var dimensions = map.getSize();
+    img.width = dimensions.x;
+    img.height = dimensions.y;
+    img.src = canvas.toDataURL();
+    document.getElementById('tripimg').innerHTML = '';
+    document.getElementById('tripimg').appendChild(img);
+  });
 
   document.getElementById("trip-plan-forum").style.display = "block";
   document.getElementById("button-close").style.display = "inline";
@@ -71,21 +92,42 @@ function insertNewPost() {
   console.log("Difftime", diffTime);
   var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
+  // var postRequest = new XMLHttpRequest();
+  // var reqURL = "/trip.html/addTrip";
+  // postRequest.open('POST', reqURL);
+
+// var context = JSON.stringify({
+
+// var postImage;
+//
+
+var img = document.getElementById("tempimg")
+
+console.log("Img", img.src);
+
 var context = {
-
 location: document.getElementById("results").textContent,
-startDate: document.getElementById("trip-start-date").value,
-endDate: document.getElementById("trip-start-date").value,
+tripStartDate: document.getElementById("trip-start-date").value,
+tripEndDate: document.getElementById("trip-start-date").value,
 time: diffDays,
-notes: 6
-
+longitude: long,
+latitude: lat,
+tripPostImage: img.src
 };
+
+//tripPostImage:
+
+// });
+
+// postRequest.setRequestHeader('Content-Type', 'application/json' );
+// postRequest.send(context);
 
 var postCardHTML = Handlebars.templates.tripEntery(context);
 
 var postContainer = document.getElementById('mytrips');
 
 postContainer.insertAdjacentHTML("beforeend", postCardHTML);
+
 
 return postCardHTML;
 

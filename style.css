@@ -56,34 +56,11 @@ h1 {
 
 .filter-input-container {
   float: left;
+  margin: 10px 30px 0px 0px;
 }
 
 .filter-container h2 {
   margin: 0;
-}
-
-.filter-input-container {
-  margin: 10px 30px 0px 0px;
-}
-
-#filter-start-day  {
-  min-width: 10px;
-  max-width: 20px;
-}
-
-#filter-start-year  {
-  min-width: 10px;
-  max-width: 30px;
-}
-
-#filter-end-day  {
-  min-width: 10px;
-  max-width: 20px;
-}
-
-#filter-end-year  {
-  min-width: 10px;
-  max-width: 30px;
 }
 
 .action-button {
