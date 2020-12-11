@@ -48,6 +48,20 @@ form.addEventListener('submit', async (event) => {
 
   resultDiv.insertAdjacentHTML( 'afterbegin', t );
 
+
+  leafletImage(map, function(err, canvas) {
+    // now you have canvas
+    // example thing to do with that canvas:
+    var img = document.createElement('img');
+    img.setAttribute("id", "tempimg");
+    var dimensions = map.getSize();
+    img.width = dimensions.x;
+    img.height = dimensions.y;
+    img.src = canvas.toDataURL();
+    document.getElementById('tripimg').innerHTML = '';
+    document.getElementById('tripimg').appendChild(img);
+  });
+
   document.getElementById("trip-plan-forum").style.display = "block";
   document.getElementById("button-close").style.display = "inline";
 
@@ -87,13 +101,18 @@ function insertNewPost() {
 // var postImage;
 //
 
+var img = document.getElementById("tempimg")
+
+console.log("Img", img.src);
+
 var context = {
 location: document.getElementById("results").textContent,
 tripStartDate: document.getElementById("trip-start-date").value,
 tripEndDate: document.getElementById("trip-start-date").value,
 time: diffDays,
 longitude: long,
-latitude: lat
+latitude: lat,
+tripPostImage: img.src
 };
 
 //tripPostImage:
@@ -109,16 +128,6 @@ var postContainer = document.getElementById('mytrips');
 
 postContainer.insertAdjacentHTML("beforeend", postCardHTML);
 
-leafletImage(map, function(err, canvas) {
-  var img = document.createElement('img');
-  var dimensions = map.getSize();
-  img.width = dimensions.x;
-  img.height = dimensions.y;
-  img.src = canvas.toDataURL();
-
-document.querySelector('.trip-image-container').appendChild(img);
-
-});
 
 return postCardHTML;
 

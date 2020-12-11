@@ -36,7 +36,7 @@
 </div>
 -->
 
-<div class="trip" data-title={{location}}>
+<div class="trip" data-title={{location}} data-longitude={{longitude}} data-latitude={{latitude}}>
   <div class="trip-contents">
     <div class="trip-remove-container">
       <button type="button" id={{index}} class="trip-remove">X</button>
@@ -52,11 +52,11 @@
       <div>
         <span>Start Date: </span> <span class="trip-start-date">{{tripStartDate}}</span>
       </div>
-      
+
       <div>
         <span>End Date: </span> <span class="trip-end-date">{{tripEndDate}}</span>
       </div>
-      
+
       <div class="trip-location">{{location}}</div>
       <p>{{description}}</p>
     </div>
