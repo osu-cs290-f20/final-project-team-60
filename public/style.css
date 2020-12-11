@@ -82,13 +82,6 @@ nav {
 .trip-location {
   display: none;
 }
-/* p {
-  display: none;
-  padding-left: 20px;
-  font-size: 25px;
-  float: left;
-  max-width: 580px;
-} */
 
 h1 {
   margin-left: 25px;
@@ -125,7 +118,7 @@ h1 {
   width: auto;
   margin-left: 10px;
   margin-top: 10px;
-  margin-bottom: 25px;
+
 }
 
 .trip .trip-contents .trip-info-container {
@@ -221,8 +214,7 @@ h1 {
 
 /* photo posts */
 .gallery-stuff-container {
-  /* display: flex;
-  justify-content: center; */
+
 }
 
 .entire-slideshow-container {
@@ -235,14 +227,14 @@ h1 {
   display: flex;
   justify-content: center;
   margin-top: 0;
-  /* margin:0; */
+
 }
 
 .photo-post {
   display: block;
   padding: 20px;
   margin: 20px;
-  /* display: none; */
+  
 }
 
 .photo-post-image-container img {
@@ -261,8 +253,6 @@ h1 {
 }
 
 .button-container {
-  /* width: 40px;
-  height: 40px; */
 }
 
 #previous-button {
