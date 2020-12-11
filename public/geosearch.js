@@ -28,6 +28,8 @@ var lat;
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
+document.getElementById("trip-create-success").style.display = "none";
+
   const results = await provider.search({ query: input.value });
   console.log(results); // » [{}, {}, {}, ...]
 
@@ -141,6 +143,7 @@ if(!document.getElementById("trip-start-date").value || !document.getElementById
 else {
   document.getElementById("trip-plan-forum").style.display = "none";
   document.getElementById("button-close").style.display = "none";
+  document.getElementById("trip-create-success").style.display = "inline";
 }
 
 }
