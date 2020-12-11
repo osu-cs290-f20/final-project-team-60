@@ -68,22 +68,22 @@ h1 {
 
 #filter-start-day  {
   min-width: 10px;
-  max-width: 20px;
+  max-width: 35px;
 }
 
 #filter-start-year  {
   min-width: 10px;
-  max-width: 30px;
+  max-width: 50px;
 }
 
 #filter-end-day  {
   min-width: 10px;
-  max-width: 20px;
+  max-width: 35px;
 }
 
 #filter-end-year  {
   min-width: 10px;
-  max-width: 30px;
+  max-width: 50px;
 }
 
 .action-button {
