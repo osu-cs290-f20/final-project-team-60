@@ -52,6 +52,34 @@ app.get('/index.html', function(req, res, next) {
   });
 });
 
+//deleting a trip from the datafile
+app.delete('/index.html/deleteTrip', function(req, res, next) {
+  console.log(req.body.index);
+  //need to recieve an index
+  if(req.body.index) {
+    //delete tripsData[index]
+    tripsData.splice(req.body.index, 1);
+    console.log(tripsData);
+  }
+  else {
+    next();
+  }
+    //update file
+    fs.writeFile(__dirname + '/tripsData.json',
+      JSON.stringify(tripsData, null, 2),
+      function(err, data) {
+        if(err) {
+          console.log('server error');
+          res.status(500).send("error with deleting trip");
+        }
+        else {
+          res.status(200).send("Trip successfully deleted");
+        }
+      }
+    );
+  res.status(200).send('Trip deleted');
+});
+
 app.get('/trip.html', function(req, res, next) {
   res.status(200).render('trip', {
      // sitetitle: "Benny's Tripz",
