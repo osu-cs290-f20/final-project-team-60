@@ -1,6 +1,11 @@
 // This file contains all the javascript for the geosearch (searchbar) and map (leaflet)
 
 
+
+
+//  This code snippet is from the leaflet github documentation and initializes a basic map
+// https://github.com/Leaflet/Leaflet
+
 var map = L.map('mapid', {
     // Set latitude and longitude of the map center (required)
     center: [30, -30],
@@ -16,9 +21,11 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
+// The code snippet below is from the leaflet-geosearch documentation, and has been modified to suite the needs of our website
+// The next 3 lines of code initialize our search box as a functional map searchbar
+//https://github.com/smeijer/leaflet-geosearch
 
 const provider = new GeoSearch.OpenStreetMapProvider();
-
 const form = document.querySelector('form');
 const input = form.querySelector('input[type="text"]');
 
@@ -50,6 +57,9 @@ document.getElementById("trip-create-success").style.display = "none";
 
   resultDiv.insertAdjacentHTML( 'afterbegin', t );
 
+// The following code snippet is from leafletImage, which converts a leaflet map into an image file.
+// This is a basic function from the example in their readme.md modified to insert the image in the correct place on our website
+// https://github.com/mapbox/leaflet-image
 
   leafletImage(map, function(err, canvas) {
     // now you have canvas
