@@ -1,4 +1,5 @@
 var path = require('path');
+var fs = require('fs');
 var express = require('express');
 var exphbs = require('express-handlebars');
 var tripsData = require('./tripsData.json');
@@ -10,16 +11,20 @@ var port = process.env.PORT || 80;
 app.engine('handlebars', exphbs({ defaultLayout: null}));
 app.set('view engine', 'handlebars');
 
+app.use(express.json());
+
 // var imageEntery = {
 //   photoURL: '',
 //   caption: ''
 // }
 
+//an imageEntery object representing a single image card in the gallery page
 function imageEntery(photoURL, caption) {
   this.photoURL = photoURL;
   this.caption = caption;
 }
 
+//gets each image url and triptitle corresponding to each trip in DB. Then, it inserts them in an array of objects
 function getImages() {
   var combinedImagesArray = [];
 
@@ -54,9 +59,42 @@ app.get('/trip.html', function(req, res, next) {
    });
 });
 
+//adding a trip to the datafile
+app.post('/trip.html/addTrip', function(req, res, next) {
+  console.log("req.body", req.body);
+  //if all data is present, push it the tripsData array and append the file with new data
+  if(req.body && req.body.tripTitle && req.body.tripStartDate && req.body.tripEndDate && req.body.location && req.body.images) {
+    tripsData.push({
+      tripPostImage: req.body.images[0],
+      tripTitle: req.body.tripTitle,
+      tripStartDate: req.body.tripStartDate,
+      tripEndDate: req.body.tripEndDate,
+      location: req.body.location,
+      images: req.body.images
+    });
+    fs.writeFile(__dirname + '/tripsData.json',
+      JSON.stringify(tripsData, null, 2),
+      function(err, data) {
+        if(err) {
+          console.log('server error');
+          res.status(500).send("error with adding trip");
+        }
+        else {
+          res.status(200).send("Trip successfully added");
+        }
+      }
+    );
+    console.log('Data for trip ' + (tripsData.length-1) + ' :', tripsData[tripsData.length-1]);
+    res.status(200).send('Trip added');
+  }
+  else {
+    next();
+  }
+})
+
 app.get('/gallery.html', function(req, res, next) {
   res.status(200).render('gallery', {
-    // pagetitle: "Gallery",
+    pagetitle: "Gallery",
     photos: imagesArray
     // caption: "Some photo"
   });
