@@ -4,7 +4,7 @@ var trips = document.getElementsByClassName('trip');
 createTripsList();
 
 function createTripsList() {
-    for (var x = 0; x < trips.length; x++) { 
+    for (var x = 0; x < trips.length; x++) {
         tripsList.push([]);
         tripsList[x].push(trips[x].children[0].children[3].children[3].textContent);
         tripsList[x].push(trips[x].children[0].children[1].children[0].src);
@@ -21,32 +21,36 @@ function createTripsList() {
 
     for (var x = 0; x < tripsList.length; x++) {
         insertTrip(x);
-        removeTrip(x, x);
+        removeTrip(x, x, true);
         getDescription(x, x);
     }
 }
 
-function removeTrip(tripsLength, x) {
-    document.getElementsByClassName('trip-remove')[tripsLength].addEventListener('click', function() { 
+function removeTrip(tripsLength, x, permDelete) {
+    document.getElementsByClassName('trip-remove')[tripsLength].addEventListener('click', function() {
         trips[tripsLength].remove();
 
-        var tripReq = new XMLHttpRequest();
-        reqURL = "/index.html/deleteTrip";
-        tripReq.open('DELETE', reqURL);
-/*
-        var tripBody = JSON.stringify({
-            tripPostImage: tripsList[x][1],
-            tripStartDate: tripsList[x][2],
-            tripEndDate: tripsList[x][3],
-            location: tripsList[x][0],
-            latitude: tripsList[x][5],
-            longitude: tripsList[x][6],
-            mapImage: tripsList[x][4]
-        });
+        if(permDelete) {
+          var tripReq = new XMLHttpRequest();
+          reqURL = "/index.html/deleteTrip";
+          tripReq.open('DELETE', reqURL);
 
-        tripReq.setRequestHeader('Content-Type', 'application/json');
-        tripReq.send(tripBody);
-*/
+          var tripBody = JSON.stringify({
+              index: x
+          });
+
+          tripReq.setRequestHeader('Content-Type', 'application/json');
+          tripReq.addEventListener('load', function(event) {
+            if(event.target.status == 200) {
+              alert('Trip deleted successfully');
+            }
+            else {
+              alert('Trip deletion error');
+            }
+          });
+          tripReq.send(tripBody);
+        }
+
         tripsList.splice(x, 1);
 
         for (var i = x; i < trips.length - 1; i++) {
@@ -59,23 +63,23 @@ function removeTrip(tripsLength, x) {
             tripsList.length = 0;
             createTripsList();
         }
-    }, false);    
+    }, false);
 }
 
 function getDescription(tripsLength, x) {
-    document.getElementsByClassName('trip-title')[tripsLength].addEventListener('click', function() { 
+    document.getElementsByClassName('trip-title')[tripsLength].addEventListener('click', function() {
         document.getElementById('modal-backdrop').style.display = 'inline';
         document.getElementById('modal').style.display = 'inline';
 
         if (document.getElementById('modal').children.length == 2) {
             document.getElementById('modal').children[1].remove();
         }
-        
+
         var map = document.createElement('div');
         var mapURL = document.createElement('img');
         mapURL.src = tripsList[x][4];
         map.appendChild(mapURL);
-        document.getElementById('modal').appendChild(map); 
+        document.getElementById('modal').appendChild(map);
 
     }, false);
 }
@@ -123,7 +127,7 @@ function insertTrip(x) {
 
     var newMap = document.createElement('img');
     newMap.src = tripsList[x][4];
-    newTripMap.appendChild(newMap);    
+    newTripMap.appendChild(newMap);
 
     var newTripInfo = document.createElement('div');
     newTripInfo.className = "trip-info-container";
@@ -164,7 +168,7 @@ function insertTrip(x) {
     newLocation.className = "trip-location";
     newLocation.appendChild(l);
     newTripInfo.appendChild(newLocation);
-    
+
     document.getElementById('trips').appendChild(newTrip);
 }
 
@@ -172,8 +176,8 @@ function filterTrips() {
     var trips = document.getElementsByClassName('trip');
     var title = document.getElementById('filter-trip-name').value.toLowerCase();
     var startDate = document.getElementById('filter-start-date').value;
-    var endDate = document.getElementById('filter-end-date').value;  
-    var country = document.getElementById('filter-trip-name').value.toLowerCase();   
+    var endDate = document.getElementById('filter-end-date').value;
+    var country = document.getElementById('filter-trip-name').value.toLowerCase();
 
     while (trips.length > 0) {
         trips[0].remove();
@@ -188,7 +192,7 @@ function filterTrips() {
             tripsList[x][0].toLowerCase().includes(country)) {
 
             insertTrip(x);
-            removeTrip(tripsLength, x);
+            removeTrip(tripsLength, x, false);
             getDescription(tripsLength, x);
             tripsLength++;
         }
