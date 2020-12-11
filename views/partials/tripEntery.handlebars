@@ -1,10 +1,14 @@
-<div class="trip" data-title={{location}} data-lat={{latitude}} data-long={{longitude}} data-mapurl={{mapImage}}>
+<div class="trip" data-title={{location}} data-lat={{latitude}} data-long={{longitude}}>
   <div class="trip-contents">
     <div class="trip-remove-container">
       <button type="button" id={{index}} class="trip-remove">X</button>
     </div>
     <div class="trip-image-container">
       <img src={{tripPostImage}}>
+    </div>
+
+    <div class="trip-map-container" hidden>
+      <img src={{mapImage}}>
     </div>
     <div class="trip-info-container">
       <div>
