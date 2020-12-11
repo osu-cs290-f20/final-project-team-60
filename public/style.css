@@ -63,7 +63,9 @@ nav {
   border: none;
 }
 
-
+.trip-location {
+  display: none;
+}
 /* p {
   display: none;
   padding-left: 20px;
